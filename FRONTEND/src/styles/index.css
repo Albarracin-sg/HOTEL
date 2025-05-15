@@ -136,3 +136,54 @@
 .react-datepicker__day--disabled:hover {
   background-color: transparent; /* Sin fondo en hover si está deshabilitado */
 }
+
+/* src/styles/globals.css o similar */
+
+.glass-effect {
+  /* Un fondo blanco semi-transparente */
+  background-color: rgba(255, 255, 255, 0.15); /* Ajusta la opacidad (0.15) */
+  /* Borde sutil */
+  border: 1px solid rgba(255, 255, 255, 0.18); /* Ajusta la opacidad y color del borde */
+  /* Desenfoque del fondo */
+  backdrop-filter: blur(10px); /* Ajusta la cantidad de desenfoque */
+  -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+  /* Bordes redondeados */
+  border-radius: 10px; /* Ajusta según tu preferencia */
+  /* Sombra sutil */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Ajusta la sombra */
+}
+
+/* Opcional: Un estilo para contenedores de texto sobre un fondo */
+.glass-text-container {
+   background-color: rgba(255, 255, 255, 0.05); /* Ligeramente más transparente */
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   backdrop-filter: blur(5px);
+   -webkit-backdrop-filter: blur(5px);
+   border-radius: 8px;
+   padding: 1.5rem; /* Ajusta el padding */
+}
+
+* Clases para el efecto general de glassmorphism */
+.glass-effect {
+  background-color: rgba(255, 255, 255, 0.08); /* Fondo muy sutil, casi transparente */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borde fino y casi invisible */
+  backdrop-filter: blur(12px); /* Desenfoque */
+  -webkit-backdrop-filter: blur(12px); /* Compatibilidad Safari */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+/* Clase para elementos de interfaz (botones, barras) con glassmorphism */
+.glass-ui {
+    background-color: rgba(255, 255, 255, 0.05); /* Aún más sutil */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+     border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* Estilos para el contenedor 3D (necesario para la perspectiva) */
+.perspective-1000 {
+  perspective: 1000px;
+}
