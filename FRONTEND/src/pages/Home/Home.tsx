@@ -4,8 +4,7 @@ import React from "react";
 import Header from "../../components/common/Header/Header";
 import HeroSection from "../../components/specific/HeroSection/HeroSection";
 import Footer from "../../components/common/Footer/Footer";
-// Importación correcta del componente AranyaGallery
-import AranyaGallery from "../../components/specific/AranyaGallery/AranyaGallery";
+
 // Importa la imagen de fondo del hero
 import heroBackground from "../../assets/images/background/v1.jpg";
 
@@ -53,7 +52,12 @@ const Home: React.FC = () => {
       <div>
         {/* Aranya Gallery Section */}
         <section id="about-us" className="w-full">
-          <AranyaGallery />
+          <div className="flex flex-col items-center justify-center py-20">
+            <h2 className="text-4xl font-bold mb-6 text-amber-500">Sobre Nosotros</h2>
+            <p className="text-lg text-gray-300 max-w-2xl text-center">
+              En Aranya, ofrecemos una experiencia única de lujo y tranquilidad. Nuestro hotel está diseñado para brind
+              arte un refugio perfecto en medio de la naturaleza. Desde nuestras habitaciones elegantes hasta nuestras instalaciones de primer nivel, cada detalle ha sido cuidadosamente pensado para tu comodidad y satisfacción.</p>
+          </div>
         </section>
       </div>
     </>
