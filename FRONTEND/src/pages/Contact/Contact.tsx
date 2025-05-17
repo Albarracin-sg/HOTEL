@@ -12,7 +12,9 @@ const Contact: React.FC = () => {
     { label: 'Amenities', href: '/amenities' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Reservations', href: '/reservations' }, 
   ];
+
 
   return (
     // Contenedor principal con fondo oscuro, texto blanco y layout de columna

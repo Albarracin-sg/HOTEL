@@ -28,7 +28,9 @@ const Rooms: React.FC = () => { // Usamos React.FC para tipar el componente func
     { label: 'Amenities', href: '/amenities' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Reservations', href: '/reservations' }, 
   ];
+
 
   // Categorías para filtrar
   const categories = [

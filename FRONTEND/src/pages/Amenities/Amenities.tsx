@@ -12,7 +12,9 @@ const Amenities: React.FC = () => {
     { label: 'Amenities', href: '/amenities' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Contact', href: '/contact' },
+    { label: 'Reservations', href: '/reservations' }, 
   ];
+
 
   // Datos de ejemplo para servicios del hotel
   const amenitiesList = [

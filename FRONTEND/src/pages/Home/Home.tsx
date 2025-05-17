@@ -4,7 +4,7 @@ import React from "react";
 import Header from "../../components/common/Header/Header";
 import HeroSection from "../../components/specific/HeroSection/HeroSection";
 import Footer from "../../components/common/Footer/Footer";
-import AboutUsSection from "../aboitme";
+import AboutUsVisual from "../aboitme";
 // Importa la imagen de fondo del hero
 import heroBackground from "../../assets/images/background/v1.jpg";
 
@@ -49,11 +49,9 @@ const Home: React.FC = () => {
 
         <Footer className="w-full absolute bottom-0 p-6 z-20" />
       </div>
-      <div>
-        {/* Aranya Gallery Section */}
-        <section id="about-us" className="w-full">
-          <AboutUsSection />
-        </section>
+      <div className="bg-gray-900 text-white min-h-screen flex flex-col">
+          <AboutUsVisual />
+       
       </div>
     </>
   );
