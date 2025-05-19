@@ -6,7 +6,7 @@ import HeroSection from "../../components/specific/HeroSection/HeroSection";
 import Footer from "../../components/common/Footer/Footer";
 import AboutUsVisual from "../aboitme";
 // Importa la imagen de fondo del hero
-import heroBackground from "../../assets/images/background/v1.jpg";
+import heroBackground from "../../assets/images/background/v3.jpg";
 
 const Home: React.FC = () => {
   // Datos para pasar al Header (links de navegación)
