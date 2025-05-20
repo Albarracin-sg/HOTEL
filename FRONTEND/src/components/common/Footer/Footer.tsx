@@ -1,21 +1,38 @@
-// src/components/common/Footer/Footer.tsx
+import React, { useState, useEffect } from "react";
 
-import React from "react";
-
-// Define las props para el componente Footer (si necesitas personalización)
-// Mantengo la interfaz si quieres la opción de pasar props en el futuro,
-// pero ajusto la implementación para usar datos internos por ahora,
-// ya que así está en tu código actual.
 interface FooterProps {
-  copyrightText?: string; // Hago opcional si no se usa siempre
-  socialLinks?: { platform: string; href: string; icon: React.ReactNode }[]; // Hago opcional si no se usa siempre
-  className?: string; // Hago opcional si no siempre se pasa
+  copyrightText?: string;
+  socialLinks?: { platform: string; href: string; icon: React.ReactNode }[];
+  className?: string;
 }
 
-// Recibimos className como prop
 const Footer: React.FC<FooterProps> = ({ className }) => {
-  // Datos de ejemplo para enlaces de redes sociales - USAMOS ESTOS DATOS INTERNOS
-  // Si quisieras usar los props, deberías usar "socialLinks || [ ...datos por defecto... ]"
+  // Estado para controlar la visibilidad del botón "volver arriba"
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  // Función para volver al inicio de la página
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
+  // Efecto para detectar el scroll y mostrar/ocultar el botón
+  useEffect(() => {
+    const handleScroll = () => {
+      // Mostrar el botón cuando hayamos bajado 300px
+      setShowScrollTop(window.scrollY > 300);
+    };
+
+    // Añadir y limpiar el event listener
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Datos de ejemplo para enlaces de redes sociales
   const internalSocialLinks = [
     {
       platform: "facebook",
@@ -62,18 +79,16 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   ];
 
   return (
-    // Aplicamos clases básicas (w-full, p-6, bg-gray-800)
-    // y también aplicamos cualquier clase pasada por la prop 'className'.
-    <footer className={className}>
-      {/* Contenedor centralizado que alinea los iconos a la derecha */}
-      <div className="container mx-auto flex justify-end items-center">
-        {/* Contenedor para los iconos de redes sociales con espacio */}
-        <div className="flex space-x-4">
-          {internalSocialLinks.map(
-            (
-              link // Usamos el array interno
-            ) => (
-              // Enlace para cada red social, color ambar y efecto hover
+    <>
+      {/* Footer fijo en la parte inferior con fondo transparente */}
+      <footer
+        className={`fixed bottom-0 left-0 w-full bg-transparent p-4 z-10 ${className || ""}`}
+      >
+        {/* Contenedor para los iconos y el botón, alineados a la derecha */}
+        <div className="container mx-auto flex justify-end items-center">
+          {/* Contenedor para los iconos de redes sociales */}
+          <div className="flex space-x-4 items-center">
+            {internalSocialLinks.map((link) => (
               <a
                 key={link.platform}
                 href={link.href}
@@ -81,15 +96,37 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 rel="noopener noreferrer"
                 className="text-amber-500 hover:text-amber-400 transition-colors"
               >
-                {link.icon} {/* Renderiza el SVG del icono */}
+                {link.icon}
               </a>
-            )
-          )}
+            ))}
+            
+            {/* Botón de volver arriba integrado en la línea de iconos */}
+            {showScrollTop && (
+              <button
+                onClick={scrollToTop}
+                className="ml-4 bg-amber-500 hover:bg-amber-400 text-white p-3 rounded-full shadow-lg transition-all z-20"
+                aria-label="Volver arriba"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 15l7-7 7 7"
+                  />
+                </svg>
+              </button>
+            )}
+          </div>
         </div>
-        {/* Puedes añadir texto de copyright aquí si lo deseas */}
-        {/* <p className="text-gray-400 ml-4">&copy; {new Date().getFullYear()} Tu Hotel.</p> */}
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 };
 
