@@ -11,17 +11,7 @@ import { useLanguage } from "../../components/common/context/LanguageContext";
 
 const Home: React.FC = () => {
   // Usa el hook de idioma para acceder al idioma actual y funciones de traducción
-  const { language, setLanguage, t } = useLanguage();
-
-  // Datos para pasar al Header (links de navegación)
-  const headerNavLinks = [
-    { label: t("nav.home"), href: "/" },
-    { label: t("nav.rooms"), href: "/rooms" },
-    { label: t("nav.amenities"), href: "/amenities" },
-    { label: t("nav.gallery"), href: "/gallery" },
-    { label: t("nav.contact"), href: "/contact" },
-    { label: t("nav.reservations"), href: "/reservations" },
-  ];
+  const { t } = useLanguage();
 
   // Datos para pasar al HeroSection
   const heroSectionData = {
@@ -40,13 +30,7 @@ const Home: React.FC = () => {
         {/* Renderiza el componente Header, pasándole las props */}
         <Header
           logoText="Aranya"
-          navLinks={headerNavLinks}
-          languages={[
-            { code: "es", name: "Español" },
-            { code: "en", name: "English" },
-          ]}
-          currentLanguage={language}
-          onLanguageChange={(lang) => setLanguage(lang as 'es' | 'en')}
+
         />
         {/* Renderiza el componente HeroSection, pasándole los datos */}
         <HeroSection {...heroSectionData} />
