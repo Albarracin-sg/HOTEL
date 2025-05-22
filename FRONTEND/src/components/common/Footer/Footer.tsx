@@ -1,12 +1,14 @@
+// src/components/common/Footer/Footer.tsx
 import React, { useState, useEffect } from "react";
 
 interface FooterProps {
   copyrightText?: string;
   socialLinks?: { platform: string; href: string; icon: React.ReactNode }[];
   className?: string;
+  isGalleryPage?: boolean; // <-- Nueva prop
 }
 
-const Footer: React.FC<FooterProps> = ({ className }) => {
+const Footer: React.FC<FooterProps> = ({ className, isGalleryPage }) => { 
   // Estado para controlar la visibilidad del botón "volver arriba"
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -14,7 +16,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
@@ -78,11 +80,15 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
     },
   ];
 
+  // Determinar el padding inferior basado en isGalleryPage
+  const footerPaddingClasses = isGalleryPage ? "pb-17.5 md:pb-10" : "p-4"; // p-4 para el comportamiento normal
+
   return (
     <>
       {/* Footer fijo en la parte inferior con fondo transparente */}
       <footer
-        className={`fixed bottom-0 left-0 w-full bg-transparent p-4 z-10 ${className || ""}`}
+        // Usamos la clase dinámica para el padding
+        className={`fixed bottom-0 left-0 w-full bg-transparent z-10 ${footerPaddingClasses} ${className || ""}`}
       >
         {/* Contenedor para los iconos y el botón, alineados a la derecha */}
         <div className="container mx-auto flex justify-end items-center">
@@ -99,7 +105,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 {link.icon}
               </a>
             ))}
-            
+
             {/* Botón de volver arriba integrado en la línea de iconos */}
             {showScrollTop && (
               <button

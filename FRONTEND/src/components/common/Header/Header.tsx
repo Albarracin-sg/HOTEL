@@ -1,30 +1,37 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
-// Define las props para el componente Header
+// Define las props para el componente Header - simplificadas
 interface HeaderProps {
   logoText: string; // Texto para el logo o nombre del sitio
-  navLinks: { label: string; href: string }[]; // Array de objetos para los links de navegación
-  languages?: { code: string; name: string }[]; // Idiomas disponibles
-  currentLanguage?: string; // Idioma actual
-  onLanguageChange?: (langCode: string) => void; // Función para cambiar el idioma
 }
 
-const Header: React.FC<HeaderProps> = ({ 
-  logoText, 
-  navLinks, 
-  languages = [
-    { code: 'es', name: 'Español' },
-    { code: 'en', name: 'English' },
-  ],
-  currentLanguage = 'es',
-  onLanguageChange = () => {} 
-}) => {
+const Header: React.FC<HeaderProps> = ({ logoText }) => {
+  // Usar el contexto de idioma
+  const { language, setLanguage, t } = useLanguage();
+  
   // Estado para controlar si el menú móvil está abierto o cerrado
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   // Estado para controlar si el menú de idiomas está abierto
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+
+  // Definir los enlaces de navegación usando las traducciones
+  const navLinks = [
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.rooms"), href: "/rooms" },
+    { label: t("nav.amenities"), href: "/amenities" },
+    { label: t("nav.gallery"), href: "/gallery" },
+    { label: t("nav.contact"), href: "/contact" },
+    { label: t("nav.reservations"), href: "/reservations" },
+  ];
+
+  // Idiomas disponibles
+  const languages = [
+    { code: 'es', name: 'Español' },
+    { code: 'en', name: 'English' },
+  ];
 
   // Función para alternar el estado del menú
   const toggleMenu = () => {
@@ -37,8 +44,8 @@ const Header: React.FC<HeaderProps> = ({
   };
   
   // Función para cambiar el idioma
-  const changeLanguage = (langCode: string) => {
-    onLanguageChange(langCode);
+  const changeLanguage = (langCode: 'es' | 'en') => {
+    setLanguage(langCode);
     setIsLanguageMenuOpen(false);
   };
 
@@ -74,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({
     closed: { rotate: 0 }
   };
   
-  // Variantes para el menú de idiomas - quitamos pointerEvents para evitar el error
+  // Variantes para el menú de idiomas
   const languageMenuVariants = {
     closed: { 
       opacity: 0,
@@ -126,13 +133,14 @@ const Header: React.FC<HeaderProps> = ({
           {/* Botón de Idioma/Bandera con menú desplegable */}
           <div className="relative">
             <button 
-              className="text-white hover:text-amber-500 transition-colors"
+              className="text-white hover:text-amber-500 transition-colors flex items-center space-x-1"
               onClick={toggleLanguageMenu}
               aria-label="Cambiar idioma"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
               </svg>
+              <span className="text-sm uppercase">{language}</span>
             </button>
             
             {/* Menú desplegable de idiomas */}
@@ -151,8 +159,8 @@ const Header: React.FC<HeaderProps> = ({
                     {languages.map((lang) => (
                       <li key={lang.code}>
                         <button
-                          className={`w-full text-left px-4 py-2 hover:bg-gray-800 ${currentLanguage === lang.code ? 'text-amber-500' : 'text-white'}`}
-                          onClick={() => changeLanguage(lang.code)}
+                          className={`w-full text-left px-4 py-2 hover:bg-gray-800 transition-colors ${language === lang.code ? 'text-amber-500' : 'text-white'}`}
+                          onClick={() => changeLanguage(lang.code as 'es' | 'en')}
                         >
                           {lang.name}
                         </button>
@@ -236,13 +244,15 @@ const Header: React.FC<HeaderProps> = ({
                   variants={itemVariants}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="text-white block text-xl font-medium mb-2">Idioma</div>
+                  <div className="text-white block text-xl font-medium mb-2">
+                    {language === 'es' ? 'Idioma' : 'Language'}
+                  </div>
                   <div className="flex space-x-4">
                     {languages.map((lang) => (
                       <button 
                         key={lang.code} 
-                        className={`px-3 py-1 rounded ${currentLanguage === lang.code ? 'bg-amber-500 text-black' : 'bg-gray-800 text-white'}`}
-                        onClick={() => changeLanguage(lang.code)}
+                        className={`px-3 py-1 rounded transition-colors ${language === lang.code ? 'bg-amber-500 text-black' : 'bg-gray-800 text-white hover:bg-gray-700'}`}
+                        onClick={() => changeLanguage(lang.code as 'es' | 'en')}
                       >
                         {lang.name}
                       </button>

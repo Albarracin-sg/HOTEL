@@ -1,13 +1,12 @@
-import type { ReactNode } from 'react';
 
 // Define la estructura de un ítem en la galería
 export interface GalleryItem {
   id: number;
-  title: string;
-  description: string | ReactNode;
-  year?: string;
+  title: string; // Será una clave de traducción
+  description: string; // Será una clave de traducción
+  year?: string; // Puede seguir siendo un string o una clave de traducción
   imageUrl: string;
-  alt: string;
+  alt: string; // Será una clave de traducción
 }
 
 // Define la estructura de estilos dinámicos para cada tarjeta
