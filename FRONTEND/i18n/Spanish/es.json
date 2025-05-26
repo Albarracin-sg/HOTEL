@@ -215,6 +215,40 @@
     "payment_error": "Error en el pago. Por favor, revisa los datos de la tarjeta.",
     "namecomplete": "NOMBRE COMPLETO"
   },
+  "AboutUs": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Nuestra Historia",
+    "description": "Sumérgete en una experiencia inolvidable de lujo y tranquilidad. Explora la belleza natural y relájate en un entorno sereno.",
+    "titleMission": "Nuestra Misión",
+    "mission": "Nuestra misión es ofrecer experiencias únicas que conecten a nuestros huéspedes con la naturaleza, la cultura y las tradiciones locales.",
+    "titleVision": "Nuestra Visión",
+    "vision": "Aspiramos a ser un hotel líder en turismo de lujo sostenible, reconocido por nuestro compromiso con la excelencia y la responsabilidad ambiental.",
+    "storyTitle": "Una Experiencia Única",
+    "storyText1": "En Aranya, creemos que los viajes más memorables nacen de la perfecta armonía entre el lujo y la naturaleza. Nuestro compromiso es ofrecer experiencias auténticas que conecten a nuestros huéspedes con la belleza pura del mundo natural.",
+    "storyText2": "Cada detalle ha sido cuidadosamente diseñado para crear momentos de serenidad y descubrimiento, donde el tiempo se detiene y se forjan recuerdos para toda la vida.",
+    "valuesTitle": "Nuestros Valores",
+    "value1Title": "Pasión",
+    "value1Text": "Cada experiencia se crea con dedicación y amor por lo que hacemos.",
+    "value2Title": "Excelencia",
+    "value2Text": "Mantenemos los más altos estándares en cada servicio que ofrecemos.",
+    "value3Title": "Sostenibilidad",
+    "value3Text": "Protegemos y preservamos los entornos naturales que nos inspiran.",
+    "teamTitle": "Nuestro Equipo",
+    "teamDescription": "Un grupo de profesionales apasionados, dedicados a crear experiencias extraordinarias.",
+    "team1Name": "María González",
+    "team1Role": "Directora de Experiencia",
+    "team1Bio": "Experta dedicada a crear momentos únicos e inolvidables para nuestros huéspedes.",
+    "team2Name": "Carlos Rivera",
+    "team2Role": "Guía Especializado",
+    "team2Bio": "Experto dedicado a crear momentos únicos e inolvidables para nuestros huéspedes.",
+    "team3Name": "Ana Martínez",
+    "team3Role": "Coordinadora de Servicio",
+    "team3Bio": "Experta dedicada a crear momentos únicos e inolvidables para nuestros huéspedes.",
+    "ctaTitle": "Comienza Tu Aventura",
+    "ctaText": "Descubre la magia de Aranya y crea recuerdos que durarán toda la vida.",
+    "ctaButton": "Ver Habitaciones"
+    
+  },
 
   "footer": {
     "copyright": "© 2024 Tu Empresa. Todos los derechos reservados."

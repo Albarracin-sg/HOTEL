@@ -54,7 +54,6 @@
   "roomModal.confirmBooking": "Confirm Booking",
   "roomModal.searchroom_placeholder": "search room ...",
 
-
   "header": {
     "logoText": "Book"
   },
@@ -214,6 +213,39 @@
     "payment_success": "Payment processed successfully. Redirecting...",
     "payment_error": "Payment error. Please check your card details.",
     "namecomplete": "FULL NAME"
+  },
+  "AboutUs": {
+    "title": "About Us",
+    "subtitle": "Our Story",
+    "description": "Immerse yourself in an unforgettable experience of luxury and tranquility. Explore natural beauty and relax in a serene environment.",
+    "titleMission": "Our Mission",
+    "titleVision": "Our Vision",
+    "mission": "Our mission is to offer unique experiences that connect our guests with nature, culture, and local traditions.",
+    "vision": "We aspire to be a leading hotel in sustainable luxury tourism, recognized for our commitment to excellence and environmental responsibility.",
+    "storyTitle": "A Unique Experience",
+    "storyText1": "At Aranya, we believe that the most memorable journeys are born from the perfect harmony between luxury and nature. Our commitment is to offer authentic experiences that connect our guests with the pristine beauty of the natural world.",
+    "storyText2": "Every detail has been carefully designed to create moments of serenity and discovery, where time stands still and memories are forged for a lifetime.",
+    "valuesTitle": "Our Values",
+    "value1Title": "Passion",
+    "value1Text": "Every experience is created with dedication and love for what we do.",
+    "value2Title": "Excellence",
+    "value2Text": "We maintain the highest standards in every service we offer.",
+    "value3Title": "Sustainability",
+    "value3Text": "We protect and preserve the natural environments that inspire us.",
+    "teamTitle": "Our Team",
+    "teamDescription": "A group of passionate professionals dedicated to creating extraordinary experiences.",
+    "team1Name": "María González",
+    "team1Role": "Experience Director",
+    "team1Bio": "Expert dedicated to creating unique and unforgettable moments for our guests.",
+    "team2Name": "Carlos Rivera",
+    "team2Role": "Specialized Guide",
+    "team2Bio": "Expert dedicated to creating unique and unforgettable moments for our guests.",
+    "team3Name": "Ana Martínez",
+    "team3Role": "Service Coordinator",
+    "team3Bio": "Expert dedicated to creating unique and unforgettable moments for our guests.",
+    "ctaTitle": "Begin Your Adventure",
+    "ctaText": "Discover the magic of Aranya and create memories that will last a lifetime.",
+    "ctaButton": "View Rooms"
   },
   "footer": {
     "copyright": "© 2024 Your Company. All rights reserved."
