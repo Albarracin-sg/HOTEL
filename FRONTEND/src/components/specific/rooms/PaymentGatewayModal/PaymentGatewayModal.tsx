@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CreditCard, Lock, X, Shield, Star, CheckCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
+
 
 interface PaymentGatewayModalProps {
   onSuccess: () => void;
@@ -19,6 +21,9 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const { t } = useTranslation();
+
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -42,10 +47,11 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
       setProcessing(false);
       // Aquí se validaría la tarjeta y se procesaría el pago real
       if (cardNumber && cardHolder && expiryDate && cvv) {
-        alert('Pago procesado con éxito. Redirigiendo...');
+        alert(t("payment.payment_success"));
         onSuccess(); // Llama a la función para cerrar los modales y mostrar confirmación
       } else {
-        alert('Error en el pago. Por favor, revisa los datos de la tarjeta.');
+        alert(t("payment.payment_error"));
+
       }
     }, 2000);
   };
@@ -107,9 +113,9 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                 </div>
                 <div>
                   <h2 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                    Pago Seguro
+                    {t("payment.secure_payment")}
                   </h2>
-                  <p className="text-xs text-gray-400">Experiencias Únicas</p>
+                  <p className="text-xs text-gray-400">{t("payment.unique_experiences")}</p>
                 </div>
               </div>
               <button
@@ -128,13 +134,13 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
               <div className="space-y-4">
                 <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-yellow-400/10 to-orange-500/10 px-4 py-2 rounded-xl border border-yellow-400/20">
                   <Star className="w-4 h-4 text-yellow-400" />
-                  <span className="text-sm text-gray-300">Total a pagar:</span>
+                  <span className="text-sm text-gray-300">{t("payment.total_amount")}:</span>
                 </div>
                 <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   ${roomPrice}
                 </div>
                 <div className="text-sm text-gray-400 max-w-xs">
-                  Pago seguro y protegido con encriptación de nivel bancario
+                   {t("payment.secure_note")}
                 </div>
               </div>
             </div>
@@ -145,7 +151,7 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                 {/* Número de tarjeta */}
                 <div className="space-y-2">
                   <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-300">
-                    Número de Tarjeta
+                    {t("payment.card_number")}
                   </label>
                   <div className="relative">
                     <input
@@ -167,14 +173,14 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                 {/* Nombre del titular */}
                 <div className="space-y-2">
                   <label htmlFor="cardHolder" className="block text-sm font-medium text-gray-300">
-                    Nombre del Titular
+                    {t("payment.card_holder")}
                   </label>
                   <input
                     type="text"
                     id="cardHolder"
                     value={cardHolder}
                     onChange={(e) => setCardHolder(e.target.value.toUpperCase())}
-                    placeholder="NOMBRE COMPLETO"
+                    placeholder= {t("payment.namecomplete")}
                     className="w-full px-4 py-3 bg-gray-700/50 border border-gray-600/50 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/50 transition-all duration-200"
                     required
                   />
@@ -184,7 +190,7 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <label htmlFor="expiryDate" className="block text-sm font-medium text-gray-300">
-                      Vencimiento
+                      {t("payment.expiration")}
                     </label>
                     <input
                       type="text"
@@ -205,7 +211,7 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="cvv" className="block text-sm font-medium text-gray-300">
-                      CVV
+                      {t("payment.cvv")}
                     </label>
                     <input
                       type="text"
@@ -229,12 +235,12 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
                   {processing ? (
                     <div className="flex items-center justify-center space-x-2">
                       <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                      <span>Procesando...</span>
+                      <span>{t("payment.processing")}</span>
                     </div>
                   ) : (
                     <div className="flex items-center justify-center space-x-2">
                       <Lock className="w-5 h-5" />
-                      <span>Pagar ${roomPrice}</span>
+                      <span>{t("payment.pay_button", { amount: roomPrice })}</span>
                     </div>
                   )}
                 </button>
@@ -247,15 +253,15 @@ const PaymentGatewayModal: React.FC<PaymentGatewayModalProps> = ({ onSuccess, on
             <div className="flex flex-wrap items-center justify-center space-x-4 text-xs text-gray-400">
               <div className="flex items-center space-x-1">
                 <Shield className="w-4 h-4 text-green-400" />
-                <span>SSL Seguro</span>
+               <span>{t("payment.ssl_secure")}</span>
               </div>
               <div className="w-1 h-1 bg-gray-600 rounded-full hidden sm:block"></div>
               <div className="flex items-center space-x-1">
                 <CheckCircle className="w-4 h-4 text-blue-400" />
-                <span>Verificado</span>
+                <span>{t("payment.verified")}</span>
               </div>
               <div className="w-1 h-1 bg-gray-600 rounded-full hidden sm:block"></div>
-              <span>256-bit Encryption</span>
+              <span>{t("payment.encryption")}</span>
             </div>
           </div>
         </div>

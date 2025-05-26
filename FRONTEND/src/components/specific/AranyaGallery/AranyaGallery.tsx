@@ -5,10 +5,10 @@ import { AranyaCard } from './AranyaCard';
 import { AranyaControls } from './AranyaControls';
 import { blackBackground } from './AranyaGallery.data';
 import './AranyaGallery.css';
-import { useLanguage } from "../../common/context/LanguageContext"; // Importa el hook useLanguage
+import { useTranslation } from "react-i18next"; // Importa el hook useLanguage
 
 const AranyaGallery: FC = () => {
-  const { t } = useLanguage(); // Usa el hook de traducción
+  const { t } = useTranslation(); // Usa el hook de traducción
 
   const {
     activeIndex,

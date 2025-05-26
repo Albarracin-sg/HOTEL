@@ -1,0 +1,222 @@
+{
+  "nav.home": "Inicio",
+  "nav.rooms": "Habitaciones",
+  "nav.amenities": "Servicios",
+  "nav.gallery": "Galería",
+  "nav.contact": "Contacto",
+  "nav.aboutus": "Quienes Somos",
+
+  "hero.discover": "Descubre",
+  "hero.description": "Sumérgete en una experiencia de lujo y tranquilidad inigualable. Explora la belleza natural y relájate en un entorno sereno.",
+  "hero.viewRooms": "Ver Habitaciones",
+
+  "notfound.message": "ALGO SALIÓ MAL, O LA PÁGINA NO FUE ENCONTRADA.",
+  "notfound.back": "VOLVER A INICIO",
+  "notfound.redirecting": "Redirigiendo automáticamente en",
+  "notfound.seconds": "segundos",
+
+  "gallery.experience": "Experiencia",
+  "gallery.backgroundAlt": "Fondo de galería",
+  "gallery.title1": "Raíces de Aranya",
+  "gallery.description1": "Un refugio donde la calma y el diseño se funden con la naturaleza.",
+  "gallery.year1": "Desde 2022",
+  "gallery.alt1": "Historia del hotel Aranya",
+  "gallery.title2": "Espacios con Propósito",
+  "gallery.description2": "Diseño que acompaña al entorno sin perturbarlo.",
+  "gallery.year2": "Diseño & Entorno",
+  "gallery.alt2": "Arquitectura del hotel",
+  "gallery.title3": "Nuestros Valores",
+  "gallery.description3": "Naturaleza, hospitalidad y equilibrio sostenible.",
+  "gallery.year3": "Lo que nos guía",
+  "gallery.alt3": "Valores de Aranya",
+  "gallery.title4": "Únicos por Naturaleza",
+  "gallery.description4": "Ubicación, diseño y tecnología pensados para el descanso.",
+  "gallery.year4": "La experiencia Aranya",
+  "gallery.alt4": "Aspectos únicos del hotel",
+
+  "roomModal.header": "Habitación",
+  "roomModal.close": "Cerrar",
+  "roomModal.imageAlt": "{roomName} - Imagen {imageNumber}",
+  "roomModal.thumbnailAlt": "Miniatura {thumbnailNumber}",
+  "roomModal.descriptionTitle": "Descripción",
+  "roomModal.amenitiesTitle": "Comodidades",
+  "roomModal.pricePerNight": "por noche",
+  "roomModal.bookRoomTitle": "Reservar Habitación",
+  "roomModal.checkIn": "fecha de entrada",
+  "roomModal.checkOut": "fecha de salida",
+  "roomModal.guestsLabel": "Número de huéspedes",
+  "roomModal.guestSingular": "huésped",
+  "roomModal.guestPlural": "huéspedes",
+  "roomModal.emailLabel": "Correo electrónico",
+  "roomModal.emailPlaceholder": "tu@correo.com",
+  "roomModal.nightsSingular": "noche",
+  "roomModal.nightsPlural": "noches",
+  "roomModal.confirmBooking": "Confirmar Reserva",
+  "roomModal.searchroom_placeholder": "Buscar habitación...",
+
+  "header": {
+    "logoText": "Reserva"
+  },
+  "heroSection": {
+    "badge": "Experiencias Únicas",
+    "discover": "Descubre",
+    "ourRooms": "Nuestras Habitaciones",
+    "descriptionMobile": "Lujo y comodidad en cada detalle para momentos inolvidables",
+    "descriptionDesktop": "Sumérgete en el lujo y la comodidad con nuestras exclusivas opciones de alojamiento, diseñadas especialmente para crear momentos inolvidables.",
+    "statsRooms": "{{count}}+ Habitaciones",
+    "statsRating": "5★ Calificación",
+    "statsService": "24/7 Servicio",
+    "ctaHelpQuestionMobile": "¿Necesitas ayuda?",
+    "ctaHelpQuestionDesktop": "¿Necesitas asesoría personalizada?",
+    "ctaButtonMobile": "Contactar",
+    "ctaButtonDesktop": "Contactar Experto"
+  },
+  "filterSection": {
+    "allCategories": "Todas",
+    "standard": "Estándar",
+    "deluxe": "Deluxe",
+    "villa": "Villa"
+  },
+  "resultsSection": {
+    "resultsCount_one": "✨ 1 habitación disponible para ti",
+    "resultsCount_other": "✨ {{count}} habitaciones disponibles para ti",
+    "noResults": "🔍 Sin resultados",
+    "categoryFilter": "📍 {{category}}",
+    "searchTerm": "🔎 \"{{term}}\"",
+    "noResultsTitleMobile": "Sin resultados",
+    "noResultsTitleDesktop": "Oops! No encontramos nada",
+    "noResultsSearchDescription": "No hay habitaciones que coincidan con \"{{searchTerm}}\". Intenta con otros términos de búsqueda.",
+    "noResultsCategoryDescription": "No hay habitaciones en \"{{category}}\". Explora otras opciones.",
+    "clearSearchButtonMobile": "🗑️ Limpiar",
+    "clearSearchButtonDesktop": "🗑️ Limpiar búsqueda",
+    "viewAllButtonMobile": "🏠 Ver todas",
+    "viewAllButtonDesktop": "🏠 Ver todas las habitaciones"
+  },
+  "roomCard": {
+    "perNight": "/noche",
+    "viewDetails": "Ver Detalles"
+  },
+  "roomModal": {
+    "bookNow": "Reservar Ahora",
+    "capacity": "Capacidad",
+    "bedType": "Tipo de Cama",
+    "size": "Tamaño",
+    "features": "Características",
+    "amenities": "Servicios",
+    "checkInDate": "Fecha de Entrada",
+    "checkOutDate": "Fecha de Salida",
+    "guests": "Huéspedes",
+    "email": "Email",
+    "confirmBooking": "Confirmar Reserva",
+    "requiredFields": "Por favor, completa todos los campos de reserva",
+    "bookingConfirmed": "¡Reserva confirmada y pago exitoso!",
+    "paymentCanceled": "Proceso de pago cancelado."
+  },
+  "roomTypes": {
+    "standardRoom": {
+      "name": "Habitación Estándar",
+      "description": "Confortable y acogedora, ideal para viajeros solitarios o parejas.",
+      "fullDescription": "Nuestra habitación estándar ofrece el equilibrio perfecto entre comodidad y precio. Con vistas parciales al mar, esta habitación cuenta con todas las comodidades esenciales para una estancia relajante. El diseño moderno y funcional garantiza que tengas todo lo que necesitas para un descanso reparador.",
+      "features": {
+        "wifi": "Wi-Fi gratis",
+        "breakfast": "Desayuno incluido",
+        "ac": "Aire acondicionado",
+        "tv": "TV de pantalla plana"
+      },
+      "bedType": "Cama Queen",
+      "amenities": {
+        "wifi": "Wi-Fi gratis",
+        "breakfast": "Desayuno incluido",
+        "ac": "Aire acondicionado",
+        "tv": "TV pantalla plana",
+        "privateBath": "Baño privado"
+      }
+    },
+    "deluxeSuite": {
+      "name": "Suite Deluxe",
+      "description": "Espaciosa y lujosa, con sala de estar separada y vistas panorámicas.",
+      "fullDescription": "La Suite Deluxe redefine el concepto de lujo y comodidad. Con una sala de estar separada, esta suite ofrece el espacio perfecto para relajarse y disfrutar de las vistas panorámicas al paisaje natural. Cada detalle ha sido cuidadosamente seleccionado para proporcionar una experiencia única e inolvidable.",
+      "features": {
+        "wifi": "Wi-Fi gratis",
+        "gourmetBreakfast": "Desayuno gourmet",
+        "livingRoom": "Sala de estar",
+        "minibar": "Minibar premium",
+        "privateBalcony": "Balcón privado"
+      },
+      "bedType": "Cama King + Sofá cama",
+      "amenities": {
+        "wifi": "Wi-Fi gratis",
+        "gourmetBreakfast": "Desayuno gourmet",
+        "ac": "Aire acondicionado",
+        "tv": "TV pantalla plana",
+        "luxuryBath": "Baño de lujo",
+        "minibar": "Minibar premium"
+      }
+    },
+    "privatePoolVilla": {
+      "name": "Villa con Piscina Privada",
+      "description": "Máxima privacidad y exclusividad con piscina privada y terraza.",
+      "fullDescription": "Experimenta el lujo absoluto en nuestra Villa con Piscina Privada. Este santuario de tranquilidad ofrece privacidad total con su propia piscina y terraza exclusiva. Disfruta de servicios de primera clase incluidos como el servicio de mayordomo y cenas románticas, todo mientras contemplas vistas impresionantes desde tu propio paraíso personal.",
+      "features": {
+        "privatePool": "Piscina privada",
+        "exclusiveTerrace": "Terraza exclusiva",
+        "butlerService": "Servicio de mayordomo",
+        "romanticDinner": "Cena romántica incluida",
+        "vipTransfer": "Traslado VIP"
+      },
+      "bedType": "Cama King + Habitación adicional",
+      "amenities": {
+        "wifi": "Wi-Fi gratis",
+        "butlerService": "Servicio de mayordomo",
+        "ac": "Aire acondicionado",
+        "tv": "TV pantalla plana",
+        "luxuryBath": "Baño de lujo",
+        "vipTransfer": "Traslado VIP"
+      }
+    },
+    "familySuite": {
+      "name": "Suite Familiar",
+      "description": "Amplia y confortable, diseñada para familias que desean compartir momentos especiales.",
+      "fullDescription": "Nuestra Suite Familiar ha sido especialmente diseñada pensando en las necesidades de las familias. Con dos habitaciones conectadas y una zona de juegos dedicada, esta suite ofrece el espacio perfecto para que todos puedan disfrutar de unas vacaciones memorables. Las comodidades incluyen televisores en cada habitación y una nevera familiar para mayor conveniencia.",
+      "features": {
+        "twoBedrooms": "Dos habitaciones",
+        "playArea": "Zona de juegos",
+        "breakfast": "Desayuno incluido",
+        "familyFridge": "Nevera familiar",
+        "tvInEachRoom": "TV en cada habitación"
+      },
+      "bedType": "Cama King + 2 Camas individuales",
+      "amenities": {
+        "wifi": "Wi-Fi gratis",
+        "breakfast": "Desayuno incluido",
+        "ac": "Aire acondicionado",
+        "tvInEachRoom": "TV en cada habitación",
+        "twoBathrooms": "Dos baños",
+        "playArea": "Zona de juegos"
+      }
+    }
+  },
+
+  "payment": {
+    "secure_payment": "Pago Seguro",
+    "unique_experiences": "Experiencias Únicas",
+    "total_amount": "Total a pagar",
+    "secure_note": "Pago seguro y protegido con encriptación de nivel bancario",
+    "card_number": "Número de Tarjeta",
+    "card_holder": "Nombre del Titular",
+    "expiration": "Vencimiento",
+    "cvv": "CVV",
+    "pay_button": "Pagar ${{amount}}",
+    "processing": "Procesando...",
+    "ssl_secure": "SSL Seguro",
+    "verified": "Verificado",
+    "encryption": "Encriptación de 256 bits",
+    "payment_success": "Pago procesado con éxito. Redirigiendo...",
+    "payment_error": "Error en el pago. Por favor, revisa los datos de la tarjeta.",
+    "namecomplete": "NOMBRE COMPLETO"
+  },
+
+  "footer": {
+    "copyright": "© 2024 Tu Empresa. Todos los derechos reservados."
+  }
+}

@@ -3,10 +3,10 @@ import React from 'react';
 import Header from '../../components/common/Header/Header';
 import Footer from '../../components/common/Footer/Footer';
 import AranyaGallery from "../../components/specific/AranyaGallery/AranyaGallery";
-import { useLanguage } from '../../components/common/context/LanguageContext'; // Importa el hook useLanguage
+import { useTranslation } from "react-i18next"; // Importa el hook useLanguage
 
 const Gallery: React.FC = () => {
-  const { t } = useLanguage(); // Usa el hook de traducción para acceder a la función 't'
+  const { t } = useTranslation(); // Usa el hook de traducción para acceder a la función 't'
 
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">

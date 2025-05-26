@@ -1,0 +1,221 @@
+{
+  "nav.home": "Home",
+  "nav.rooms": "Rooms",
+  "nav.amenities": "Amenities",
+  "nav.gallery": "Gallery",
+  "nav.contact": "Contact",
+  "nav.aboutus": "About Us",
+
+  "hero.discover": "Discover",
+  "hero.description": "Immerse yourself in an unparalleled experience of luxury and tranquility. Explore natural beauty and relax in a serene environment.",
+  "hero.viewRooms": "View Rooms",
+
+  "notfound.message": "SOMETHING WENT WRONG, OR THE PAGE WAS NOT FOUND.",
+  "notfound.back": "BACK TO HOME",
+  "notfound.redirecting": "Redirecting automatically in",
+  "notfound.seconds": "seconds",
+
+  "gallery.experience": "Experience",
+  "gallery.backgroundAlt": "Gallery background",
+  "gallery.title1": "Aranya's Roots",
+  "gallery.description1": "A refuge where calm and design merge with nature.",
+  "gallery.year1": "Since 2022",
+  "gallery.alt1": "History of Aranya hotel",
+  "gallery.title2": "Spaces with Purpose",
+  "gallery.description2": "Design that complements the environment without disturbing it.",
+  "gallery.year2": "Design & Environment",
+  "gallery.alt2": "Hotel architecture",
+  "gallery.title3": "Our Values",
+  "gallery.description3": "Nature, hospitality, and sustainable balance.",
+  "gallery.year3": "What guides us",
+  "gallery.alt3": "Aranya's Values",
+  "gallery.title4": "Unique by Nature",
+  "gallery.description4": "Location, design, and technology designed for relaxation.",
+  "gallery.year4": "The Aranya experience",
+  "gallery.alt4": "Unique aspects of the hotel",
+
+  "roomModal.header": "Room",
+  "roomModal.close": "Close",
+  "roomModal.imageAlt": "{roomName} - Image {imageNumber}",
+  "roomModal.thumbnailAlt": "Thumbnail {thumbnailNumber}",
+  "roomModal.descriptionTitle": "Description",
+  "roomModal.amenitiesTitle": "Amenities",
+  "roomModal.pricePerNight": "per night",
+  "roomModal.bookRoomTitle": "Book Room",
+  "roomModal.checkIn": "Check-in",
+  "roomModal.checkOut": "Check-out",
+  "roomModal.guestsLabel": "Number of guests",
+  "roomModal.guestSingular": "guest",
+  "roomModal.guestPlural": "guests",
+  "roomModal.emailLabel": "Email address",
+  "roomModal.emailPlaceholder": "your@email.com",
+  "roomModal.nightsSingular": "night",
+  "roomModal.nightsPlural": "nights",
+  "roomModal.confirmBooking": "Confirm Booking",
+  "roomModal.searchroom_placeholder": "search room ...",
+
+
+  "header": {
+    "logoText": "Book"
+  },
+  "heroSection": {
+    "badge": "Unique Experiences",
+    "discover": "Discover",
+    "ourRooms": "Our Rooms",
+    "descriptionMobile": "Luxury and comfort in every detail for unforgettable moments",
+    "descriptionDesktop": "Immerse yourself in luxury and comfort with our exclusive accommodation options, specially designed to create unforgettable moments.",
+    "statsRooms": "{{count}}+ Rooms",
+    "statsRating": "5★ Rating",
+    "statsService": "24/7 Service",
+    "ctaHelpQuestionMobile": "Need help?",
+    "ctaHelpQuestionDesktop": "Need personalized advice?",
+    "ctaButtonMobile": "Contact",
+    "ctaButtonDesktop": "Contact Expert"
+  },
+  "filterSection": {
+    "allCategories": "All",
+    "standard": "Standard",
+    "deluxe": "Deluxe",
+    "villa": "Villa"
+  },
+  "resultsSection": {
+    "resultsCount_one": "✨ 1 room available for you",
+    "resultsCount_other": "✨ {{count}} rooms available for you",
+    "noResults": "🔍 No results found",
+    "categoryFilter": "📍 {{category}}",
+    "searchTerm": "🔎 \"{{term}}\"",
+    "noResultsTitleMobile": "No results",
+    "noResultsTitleDesktop": "Oops! We couldn't find anything",
+    "noResultsSearchDescription": "No rooms match \"{{searchTerm}}\". Try other search terms.",
+    "noResultsCategoryDescription": "No rooms in \"{{category}}\". Explore other options.",
+    "clearSearchButtonMobile": "🗑️ Clear",
+    "clearSearchButtonDesktop": "🗑️ Clear Search",
+    "viewAllButtonMobile": "🏠 View All",
+    "viewAllButtonDesktop": "🏠 View All Rooms"
+  },
+  "roomCard": {
+    "perNight": "/night",
+    "viewDetails": "View Details"
+  },
+  "roomModal": {
+    "bookNow": "Book Now",
+    "capacity": "Capacity",
+    "bedType": "Bed Type",
+    "size": "Size",
+    "features": "Features",
+    "amenities": "Amenities",
+    "checkInDate": "Check-in Date",
+    "checkOutDate": "Check-out Date",
+    "guests": "Guests",
+    "email": "Email",
+    "confirmBooking": "Confirm Booking",
+    "requiredFields": "Please fill in all booking fields",
+    "bookingConfirmed": "Booking confirmed and payment successful!",
+    "paymentCanceled": "Payment process canceled."
+  },
+  "roomTypes": {
+    "standardRoom": {
+      "name": "Standard Room",
+      "description": "Comfortable and cozy, ideal for solo travelers or couples.",
+      "fullDescription": "Our standard room offers the perfect balance of comfort and value. With partial sea views, this room includes all essential amenities for a relaxing stay. The modern and functional design ensures you have everything you need for a restful sleep.",
+      "features": {
+        "wifi": "Free Wi-Fi",
+        "breakfast": "Breakfast included",
+        "ac": "Air conditioning",
+        "tv": "Flat-screen TV"
+      },
+      "bedType": "Queen Bed",
+      "amenities": {
+        "wifi": "Free Wi-Fi",
+        "breakfast": "Breakfast included",
+        "ac": "Air conditioning",
+        "tv": "Flat-screen TV",
+        "privateBath": "Private bathroom"
+      }
+    },
+    "deluxeSuite": {
+      "name": "Deluxe Suite",
+      "description": "Spacious and luxurious, with a separate living area and panoramic views.",
+      "fullDescription": "The Deluxe Suite redefines the concept of luxury and comfort. With a separate living area, this suite offers the perfect space to relax and enjoy panoramic views of the natural landscape. Every detail has been carefully selected to provide a unique and unforgettable experience.",
+      "features": {
+        "wifi": "Free Wi-Fi",
+        "gourmetBreakfast": "Gourmet breakfast",
+        "livingRoom": "Living room",
+        "minibar": "Premium minibar",
+        "privateBalcony": "Private balcony"
+      },
+      "bedType": "King Bed + Sofa bed",
+      "amenities": {
+        "wifi": "Free Wi-Fi",
+        "gourmetBreakfast": "Gourmet breakfast",
+        "ac": "Air conditioning",
+        "tv": "Flat-screen TV",
+        "luxuryBath": "Luxury bathroom",
+        "minibar": "Premium minibar"
+      }
+    },
+    "privatePoolVilla": {
+      "name": "Private Pool Villa",
+      "description": "Maximum privacy and exclusivity with a private pool and terrace.",
+      "fullDescription": "Experience absolute luxury in our Private Pool Villa. This sanctuary of tranquility offers complete privacy with its own pool and exclusive terrace. Enjoy first-class services including butler service and romantic dinners, all while admiring breathtaking views from your own personal paradise.",
+      "features": {
+        "privatePool": "Private pool",
+        "exclusiveTerrace": "Exclusive terrace",
+        "butlerService": "Butler service",
+        "romanticDinner": "Romantic dinner included",
+        "vipTransfer": "VIP transfer"
+      },
+      "bedType": "King Bed + Additional room",
+      "amenities": {
+        "wifi": "Free Wi-Fi",
+        "butlerService": "Butler service",
+        "ac": "Air conditioning",
+        "tv": "Flat-screen TV",
+        "luxuryBath": "Luxury bathroom",
+        "vipTransfer": "VIP transfer"
+      }
+    },
+    "familySuite": {
+      "name": "Family Suite",
+      "description": "Spacious and comfortable, designed for families who want to share special moments.",
+      "fullDescription": "Our Family Suite has been specially designed with families' needs in mind. With two connecting rooms and a dedicated play area, this suite offers the perfect space for everyone to enjoy a memorable vacation. Amenities include TVs in each room and a family-sized refrigerator for added convenience.",
+      "features": {
+        "twoBedrooms": "Two bedrooms",
+        "playArea": "Play area",
+        "breakfast": "Breakfast included",
+        "familyFridge": "Family fridge",
+        "tvInEachRoom": "TV in each room"
+      },
+      "bedType": "King Bed + 2 Twin beds",
+      "amenities": {
+        "wifi": "Free Wi-Fi",
+        "breakfast": "Breakfast included",
+        "ac": "Air conditioning",
+        "tvInEachRoom": "TV in each room",
+        "twoBathrooms": "Two bathrooms",
+        "playArea": "Play area"
+      }
+    }
+  },
+  "payment": {
+    "secure_payment": "Secure Payment",
+    "unique_experiences": "Unique Experiences",
+    "total_amount": "Total to Pay",
+    "secure_note": "Secure and protected payment with bank-level encryption",
+    "card_number": "Card Number",
+    "card_holder": "Card Holder",
+    "expiration": "Expiry Date",
+    "cvv": "CVV",
+    "pay_button": "Pay ${{amount}}",
+    "processing": "Processing...",
+    "ssl_secure": "SSL Secure",
+    "verified": "Verified",
+    "encryption": "256-bit Encryption",
+    "payment_success": "Payment processed successfully. Redirecting...",
+    "payment_error": "Payment error. Please check your card details.",
+    "namecomplete": "FULL NAME"
+  },
+  "footer": {
+    "copyright": "© 2024 Your Company. All rights reserved."
+  }
+}

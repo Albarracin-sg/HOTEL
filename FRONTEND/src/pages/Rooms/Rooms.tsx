@@ -25,10 +25,15 @@ import {
   MapPin,
 } from "lucide-react";
 
+// Importa useTranslation
+import { useTranslation } from "react-i18next";
+
 // Importa la imagen de fondo
 import backgroundImage from "../../assets/images/background/v6.jpg";
 
 const Rooms: React.FC = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
+
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
@@ -61,20 +66,18 @@ const Rooms: React.FC = () => {
   }, []);
 
   const categories: RoomCategory[] = [
-    { id: "all", name: "Todas" },
-    { id: "standard", name: "Estándar" },
-    { id: "deluxe", name: "Deluxe" },
-    { id: "villa", name: "Villa" },
+    { id: "all", name: t("filterSection.allCategories") },
+    { id: "standard", name: t("filterSection.standard") },
+    { id: "deluxe", name: t("filterSection.deluxe") },
+    { id: "villa", name: "Villa" }, // Assuming "Villa" is a proper noun or consistent
   ];
 
   const roomTypes: Room[] = [
     {
       id: 1,
-      name: "Habitación Estándar",
-      description:
-        "Confortable y acogedora, ideal para viajeros solitarios o parejas.",
-      fullDescription:
-        "Nuestra habitación estándar ofrece el equilibrio perfecto entre comodidad y precio. Con vistas parciales al mar, esta habitación cuenta con todas las comodidades esenciales para una estancia relajante. El diseño moderno y funcional garantiza que tengas todo lo que necesitas para un descanso reparador.",
+      name: t("roomTypes.standardRoom.name"),
+      description: t("roomTypes.standardRoom.description"),
+      fullDescription: t("roomTypes.standardRoom.fullDescription"),
       price: 150,
       images: [
         "/assets/images/rooms/standard1.jpg",
@@ -84,29 +87,27 @@ const Rooms: React.FC = () => {
       ],
       category: "standard",
       features: [
-        "Wi-Fi gratis",
-        "Desayuno incluido",
-        "Aire acondicionado",
-        "TV de pantalla plana",
+        t("roomTypes.standardRoom.features.wifi"),
+        t("roomTypes.standardRoom.features.breakfast"),
+        t("roomTypes.standardRoom.features.ac"),
+        t("roomTypes.standardRoom.features.tv"),
       ],
       capacity: 2,
-      bedType: "Cama Queen",
+      bedType: t("roomTypes.standardRoom.bedType"),
       size: "25 m²",
       amenities: [
-        { icon: Wifi, name: "Wi-Fi gratis" },
-        { icon: Coffee, name: "Desayuno incluido" },
-        { icon: Wind, name: "Aire acondicionado" },
-        { icon: Tv, name: "TV pantalla plana" },
-        { icon: Bath, name: "Baño privado" },
+        { icon: Wifi, name: t("roomTypes.standardRoom.amenities.wifi") },
+        { icon: Coffee, name: t("roomTypes.standardRoom.amenities.breakfast") },
+        { icon: Wind, name: t("roomTypes.standardRoom.amenities.ac") },
+        { icon: Tv, name: t("roomTypes.standardRoom.amenities.tv") },
+        { icon: Bath, name: t("roomTypes.standardRoom.amenities.privateBath") },
       ],
     },
     {
       id: 2,
-      name: "Suite Deluxe",
-      description:
-        "Espaciosa y lujosa, con sala de estar separada y vistas panorámicas.",
-      fullDescription:
-        "La Suite Deluxe redefine el concepto de lujo y comodidad. Con una sala de estar separada, esta suite ofrece el espacio perfecto para relajarse y disfrutar de las vistas panorámicas al paisaje natural. Cada detalle ha sido cuidadosamente seleccionado para proporcionar una experiencia única e inolvidable.",
+      name: t("roomTypes.deluxeSuite.name"),
+      description: t("roomTypes.deluxeSuite.description"),
+      fullDescription: t("roomTypes.deluxeSuite.fullDescription"),
       price: 300,
       images: [
         "/assets/images/rooms/deluxe1.jpg",
@@ -117,31 +118,29 @@ const Rooms: React.FC = () => {
       ],
       category: "deluxe",
       features: [
-        "Wi-Fi gratis",
-        "Desayuno gourmet",
-        "Sala de estar",
-        "Minibar premium",
-        "Balcón privado",
+        t("roomTypes.deluxeSuite.features.wifi"),
+        t("roomTypes.deluxeSuite.features.gourmetBreakfast"),
+        t("roomTypes.deluxeSuite.features.livingRoom"),
+        t("roomTypes.deluxeSuite.features.minibar"),
+        t("roomTypes.deluxeSuite.features.privateBalcony"),
       ],
       capacity: 3,
-      bedType: "Cama King + Sofá cama",
+      bedType: t("roomTypes.deluxeSuite.bedType"),
       size: "45 m²",
       amenities: [
-        { icon: Wifi, name: "Wi-Fi gratis" },
-        { icon: Coffee, name: "Desayuno gourmet" },
-        { icon: Wind, name: "Aire acondicionado" },
-        { icon: Tv, name: "TV pantalla plana" },
-        { icon: Bath, name: "Baño de lujo" },
-        { icon: Car, name: "Minibar premium" },
+        { icon: Wifi, name: t("roomTypes.deluxeSuite.amenities.wifi") },
+        { icon: Coffee, name: t("roomTypes.deluxeSuite.amenities.gourmetBreakfast") },
+        { icon: Wind, name: t("roomTypes.deluxeSuite.amenities.ac") },
+        { icon: Tv, name: t("roomTypes.deluxeSuite.amenities.tv") },
+        { icon: Bath, name: t("roomTypes.deluxeSuite.amenities.luxuryBath") },
+        { icon: Car, name: t("roomTypes.deluxeSuite.amenities.minibar") },
       ],
     },
     {
       id: 3,
-      name: "Villa con Piscina Privada",
-      description:
-        "Máxima privacidad y exclusividad con piscina privada y terraza.",
-      fullDescription:
-        "Experimenta el lujo absoluto en nuestra Villa con Piscina Privada. Este santuario de tranquilidad ofrece privacidad total con su propia piscina y terraza exclusiva. Disfruta de servicios de primera clase incluidos como el servicio de mayordomo y cenas románticas, todo mientras contemplas vistas impresionantes desde tu propio paraíso personal.",
+      name: t("roomTypes.privatePoolVilla.name"),
+      description: t("roomTypes.privatePoolVilla.description"),
+      fullDescription: t("roomTypes.privatePoolVilla.fullDescription"),
       price: 600,
       images: [
         "/assets/images/rooms/villa1.jpg",
@@ -153,31 +152,29 @@ const Rooms: React.FC = () => {
       ],
       category: "villa",
       features: [
-        "Piscina privada",
-        "Terraza exclusiva",
-        "Servicio de mayordomo",
-        "Cena romántica incluida",
-        "Traslado VIP",
+        t("roomTypes.privatePoolVilla.features.privatePool"),
+        t("roomTypes.privatePoolVilla.features.exclusiveTerrace"),
+        t("roomTypes.privatePoolVilla.features.butlerService"),
+        t("roomTypes.privatePoolVilla.features.romanticDinner"),
+        t("roomTypes.privatePoolVilla.features.vipTransfer"),
       ],
       capacity: 4,
-      bedType: "Cama King + Habitación adicional",
+      bedType: t("roomTypes.privatePoolVilla.bedType"),
       size: "120 m²",
       amenities: [
-        { icon: Wifi, name: "Wi-Fi gratis" },
-        { icon: Coffee, name: "Servicio de mayordomo" },
-        { icon: Wind, name: "Aire acondicionado" },
-        { icon: Tv, name: "TV pantalla plana" },
-        { icon: Bath, name: "Baño de lujo" },
-        { icon: Car, name: "Traslado VIP" },
+        { icon: Wifi, name: t("roomTypes.privatePoolVilla.amenities.wifi") },
+        { icon: Coffee, name: t("roomTypes.privatePoolVilla.amenities.butlerService") },
+        { icon: Wind, name: t("roomTypes.privatePoolVilla.amenities.ac") },
+        { icon: Tv, name: t("roomTypes.privatePoolVilla.amenities.tv") },
+        { icon: Bath, name: t("roomTypes.privatePoolVilla.amenities.luxuryBath") },
+        { icon: Car, name: t("roomTypes.privatePoolVilla.amenities.vipTransfer") },
       ],
     },
     {
       id: 4,
-      name: "Suite Familiar",
-      description:
-        "Amplia y confortable, diseñada para familias que desean compartir momentos especiales.",
-      fullDescription:
-        "Nuestra Suite Familiar ha sido especialmente diseñada pensando en las necesidades de las familias. Con dos habitaciones conectadas y una zona de juegos dedicada, esta suite ofrece el espacio perfecto para que todos puedan disfrutar de unas vacaciones memorables. Las comodidades incluyen televisores en cada habitación y una nevera familiar para mayor conveniencia.",
+      name: t("roomTypes.familySuite.name"),
+      description: t("roomTypes.familySuite.description"),
+      fullDescription: t("roomTypes.familySuite.fullDescription"),
       price: 400,
       images: [
         "/assets/images/rooms/family1.jpg",
@@ -187,22 +184,22 @@ const Rooms: React.FC = () => {
       ],
       category: "deluxe",
       features: [
-        "Dos habitaciones",
-        "Zona de juegos",
-        "Desayuno incluido",
-        "Nevera familiar",
-        "TV en cada habitación",
+        t("roomTypes.familySuite.features.twoBedrooms"),
+        t("roomTypes.familySuite.features.playArea"),
+        t("roomTypes.familySuite.features.breakfast"),
+        t("roomTypes.familySuite.features.familyFridge"),
+        t("roomTypes.familySuite.features.tvInEachRoom"),
       ],
       capacity: 6,
-      bedType: "Cama King + 2 Camas individuales",
+      bedType: t("roomTypes.familySuite.bedType"),
       size: "65 m²",
       amenities: [
-        { icon: Wifi, name: "Wi-Fi gratis" },
-        { icon: Coffee, name: "Desayuno incluido" },
-        { icon: Wind, name: "Aire acondicionado" },
-        { icon: Tv, name: "TV en cada habitación" },
-        { icon: Bath, name: "Dos baños" },
-        { icon: Users, name: "Zona de juegos" },
+        { icon: Wifi, name: t("roomTypes.familySuite.amenities.wifi") },
+        { icon: Coffee, name: t("roomTypes.familySuite.amenities.breakfast") },
+        { icon: Wind, name: t("roomTypes.familySuite.amenities.ac") },
+        { icon: Tv, name: t("roomTypes.familySuite.amenities.tvInEachRoom") },
+        { icon: Bath, name: t("roomTypes.familySuite.amenities.twoBathrooms") },
+        { icon: Users, name: t("roomTypes.familySuite.amenities.playArea") },
       ],
     },
   ];
@@ -291,18 +288,18 @@ const Rooms: React.FC = () => {
 
       setShowPaymentGateway(true);
     } else {
-      alert("Por favor, completa todos los campos de reserva");
+      alert(t("roomModal.requiredFields"));
     }
   };
 
   const handlePaymentSuccess = () => {
-    alert("¡Reserva confirmada y pago exitoso!");
+    alert(t("roomModal.bookingConfirmed"));
     closeRoomModal();
   };
 
   const handlePaymentCancel = () => {
     setShowPaymentGateway(false);
-    alert("Proceso de pago cancelado.");
+    alert(t("roomModal.paymentCanceled"));
   };
 
   // Función para manejar el cambio de categoría con debug
@@ -343,7 +340,7 @@ const Rooms: React.FC = () => {
         </div>
       </div>
 
-      <Header logoText="Reserva" />
+      <Header logoText={t("header.logoText")} />
 
       {/* Sección del hero mejorada y optimizada para móvil */}
       <section
@@ -368,7 +365,7 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-xs" : "text-sm"
                 }`}
               >
-                Experiencias Únicas
+                {t("heroSection.badge")}
               </span>
               {!isMobile && (
                 <Star className="w-4 h-4 text-amber-400 animate-pulse" />
@@ -385,9 +382,9 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-xl" : "text-3xl md:text-4xl"
                 } font-light mb-2`}
               >
-                Descubre
+                {t("heroSection.discover")}
               </span>
-              Nuestras Habitaciones
+              {t("heroSection.ourRooms")}
             </h1>
 
             <p
@@ -398,8 +395,8 @@ const Rooms: React.FC = () => {
               }`}
             >
               {isMobile
-                ? "Lujo y comodidad en cada detalle para momentos inolvidables"
-                : "Sumérgete en el lujo y la comodidad con nuestras exclusivas opciones de alojamiento, diseñadas especialmente para crear momentos inolvidables."}
+                ? t("heroSection.descriptionMobile")
+                : t("heroSection.descriptionDesktop")}
             </p>
 
             {/* Estadísticas rápidas - layout adaptativo para móvil */}
@@ -410,17 +407,17 @@ const Rooms: React.FC = () => {
             >
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
                 <div className="text-2xl font-bold text-amber-400">
-                  {roomTypes.length}+
+                  {t("heroSection.statsRooms", { count: roomTypes.length })}
                 </div>
-                <div className="text-sm text-gray-300">Habitaciones</div>
+                <div className="text-sm text-gray-300">{t("heroSection.statsRooms", { count: 0 }).split('+')[1]}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-2xl font-bold text-amber-400">5★</div>
-                <div className="text-sm text-gray-300">Calificación</div>
+                <div className="text-2xl font-bold text-amber-400">{t("heroSection.statsRating")}</div>
+                <div className="text-sm text-gray-300">{t("heroSection.statsRating").split(' ')[1]}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-2xl font-bold text-amber-400">24/7</div>
-                <div className="text-sm text-gray-300">Servicio</div>
+                <div className="text-2xl font-bold text-amber-400">{t("heroSection.statsService")}</div>
+                <div className="text-sm text-gray-300">{t("heroSection.statsService").split(' ')[1]}</div>
               </div>
             </div>
 
@@ -443,8 +440,8 @@ const Rooms: React.FC = () => {
                 }`}
               >
                 {isMobile
-                  ? "¿Necesitas ayuda?"
-                  : "¿Necesitas asesoría personalizada?"}
+                  ? t("heroSection.ctaHelpQuestionMobile")
+                  : t("heroSection.ctaHelpQuestionDesktop")}
               </span>
               <a
                 href="/contact"
@@ -454,7 +451,7 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-sm" : ""
                 }`}
               >
-                {isMobile ? "Contactar" : "Contactar Experto"}
+                {isMobile ? t("heroSection.ctaButtonMobile") : t("heroSection.ctaButtonDesktop")}
               </a>
             </div>
           </div>
@@ -499,14 +496,8 @@ const Rooms: React.FC = () => {
               } font-medium mb-3`}
             >
               {filteredRooms.length > 0
-                ? `${isMobile ? "✨" : "✨"} ${
-                    filteredRooms.length
-                  } habitación${filteredRooms.length !== 1 ? "es" : ""} ${
-                    isMobile ? "" : "disponible"
-                  }${filteredRooms.length !== 1 ? "s" : ""} ${
-                    isMobile ? "" : "para ti"
-                  }`
-                : "🔍 Sin resultados"}
+                ? t("resultsSection.resultsCount", { count: filteredRooms.length })
+                : t("resultsSection.noResults")}
             </p>
 
             <div
@@ -520,8 +511,7 @@ const Rooms: React.FC = () => {
                     isMobile ? "text-xs" : "text-sm"
                   } border border-amber-500/30 font-medium`}
                 >
-                  📍{" "}
-                  {categories.find((cat) => cat.id === selectedCategory)?.name}
+                  {t("resultsSection.categoryFilter", { category: categories.find((cat) => cat.id === selectedCategory)?.name })}
                 </span>
               )}
               {searchTerm && (
@@ -530,11 +520,11 @@ const Rooms: React.FC = () => {
                     isMobile ? "text-xs" : "text-sm"
                   } border border-blue-500/30 font-medium`}
                 >
-                  🔎 "
-                  {searchTerm.length > 15 && isMobile
-                    ? searchTerm.substring(0, 15) + "..."
-                    : searchTerm}
-                  "
+                  {t("resultsSection.searchTerm", {
+                    term: searchTerm.length > 15 && isMobile
+                      ? searchTerm.substring(0, 15) + "..."
+                      : searchTerm,
+                  })}
                 </span>
               )}
             </div>
@@ -600,7 +590,7 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-xl" : "text-3xl"
                 } font-bold text-white mb-4`}
               >
-                {isMobile ? "Sin resultados" : "Oops! No encontramos nada"}
+                {isMobile ? t("resultsSection.noResultsTitleMobile") : t("resultsSection.noResultsTitleDesktop")}
               </h3>
               <p
                 className={`text-gray-300 mb-6 ${
@@ -608,13 +598,10 @@ const Rooms: React.FC = () => {
                 } leading-relaxed`}
               >
                 {searchTerm
-                  ? `No hay habitaciones que coincidan con "${searchTerm}".${
-                      isMobile ? "" : " Intenta con otros términos de búsqueda."
-                    }`
-                  : `No hay habitaciones en "${
-                      categories.find((cat) => cat.id === selectedCategory)
-                        ?.name
-                    }".${isMobile ? "" : " Explora otras opciones."}`}
+                  ? t("resultsSection.noResultsSearchDescription", { searchTerm })
+                  : t("resultsSection.noResultsCategoryDescription", {
+                      category: categories.find((cat) => cat.id === selectedCategory)?.name,
+                    })}
               </p>
 
               <div
@@ -629,7 +616,7 @@ const Rooms: React.FC = () => {
                       isMobile ? "px-6 py-3 text-sm" : "px-8 py-4"
                     } bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-bold rounded-full hover:from-blue-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95`}
                   >
-                    {isMobile ? "🗑️ Limpiar" : "🗑️ Limpiar búsqueda"}
+                    {isMobile ? t("resultsSection.clearSearchButtonMobile") : t("resultsSection.clearSearchButtonDesktop")}
                   </button>
                 )}
                 <button
@@ -641,7 +628,7 @@ const Rooms: React.FC = () => {
                     isMobile ? "px-6 py-3 text-sm" : "px-8 py-4"
                   } bg-gradient-to-r from-amber-500 to-orange-600 text-gray-900 font-bold rounded-full hover:from-amber-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95`}
                 >
-                  {isMobile ? "🏠 Ver todas" : "🏠 Ver todas las habitaciones"}
+                  {isMobile ? t("resultsSection.viewAllButtonMobile") : t("resultsSection.viewAllButtonDesktop")}
                 </button>
               </div>
             </div>

@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Room, BookingState } from "../RoomInterfaces";
 
+import { useTranslation } from "react-i18next"; 
+
 interface RoomModalProps {
   selectedRoom: Room;
   currentImageIndex: number;
@@ -27,6 +29,9 @@ const RoomModal: React.FC<RoomModalProps> = ({
   onBookingDataChange,
   onHandleBooking,
 }) => {
+
+  const { t } = useTranslation(); // Usar el hook de traducción
+
   // Obtener la fecha de hoy en formato YYYY-MM-DD
   const today = new Date().toISOString().split("T")[0];
 
@@ -163,7 +168,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
             <div className="space-y-6">
               <div>
                 <h3 className="text-xl font-semibold text-amber-400 mb-3">
-                  Descripción
+                  {t("roomModal.descriptionTitle")}
                 </h3>
                 <p className="text-gray-300 text-base leading-relaxed">
                   {selectedRoom.fullDescription}
@@ -172,7 +177,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
 
               <div>
                 <h3 className="text-xl font-semibold text-amber-400 mb-4">
-                  Comodidades
+                  {t("roomModal.amenitiesTitle")}
                 </h3>
                 <div className="grid grid-cols-2 gap-4">
                   {selectedRoom.amenities.map((amenity, index) => (
@@ -195,7 +200,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
                   <p className="text-3xl font-bold text-amber-500">
                     ${selectedRoom.price}
                   </p>
-                  <p className="text-gray-400">por noche</p>
+                  <p className="text-gray-400">{t("roomModal.pricePerNight")}</p>
                 </div>
               </div>
             </div>
@@ -204,14 +209,14 @@ const RoomModal: React.FC<RoomModalProps> = ({
           {/* Sección de Reserva - Abajo */}
           <div className="bg-gray-700 mx-6 mb-6 p-6 rounded-lg">
             <h3 className="text-xl font-semibold text-amber-400 mb-6">
-              Reservar Habitación
+              {t("roomModal.bookRoomTitle")}
             </h3>
             <div className="space-y-6">
               {/* Fechas */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Check-in
+                    {t("roomModal.checkIn")}
                   </label>
                   <input
                     type="date"
@@ -225,7 +230,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Check-out
+                    {t("roomModal.checkOut")}
                   </label>
                   <input
                     type="date"
@@ -243,7 +248,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Número de huéspedes
+                    {t("roomModal.guestsLabel")}
                   </label>
                   <select
                     value={bookingData.guests}
@@ -261,7 +266,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-2">
-                    Correo electrónico
+                    {t("roomModal.emailLabel")}	
                   </label>
                   <input
                     type="email"
@@ -269,7 +274,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
                     onChange={(e) =>
                       onBookingDataChange({ email: e.target.value })
                     }
-                    placeholder="tu@correo.com"
+                    placeholder="you@gmail.com"
                     className="w-full px-4 py-3 bg-gray-600 border border-gray-500 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-transparent"
                   />
                 </div>
@@ -279,7 +284,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
               <div className="flex items-center justify-between pt-6 border-t border-gray-600">
                 <div>
                   <p className="text-sm text-gray-400 mb-1">
-                    {nights} noche{nights !== 1 ? "s" : ""} × $
+                    {nights}, {t("roomModal.nightsSingular")} {nights !== 1 ? "s" : ""} × $
                     {selectedRoom.price}
                   </p>
                   <p className="text-3xl font-bold text-amber-500">
@@ -290,7 +295,7 @@ const RoomModal: React.FC<RoomModalProps> = ({
                   onClick={onHandleBooking}
                   className="px-8 py-4 bg-amber-500 text-gray-900 font-semibold text-lg rounded-lg hover:bg-amber-600 transform hover:scale-105 transition duration-300 shadow-lg"
                 >
-                  Confirmar Reserva
+                  {t("roomModal.confirmBooking")}
                 </button>
               </div>
             </div>

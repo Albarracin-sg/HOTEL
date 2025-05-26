@@ -1,74 +1,57 @@
-import React, { useState, useEffect } from "react"; // Importa useEffect
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
-// Define las props para el componente Header - simplificadas
 interface HeaderProps {
-  logoText: string; // Texto para el logo o nombre del sitio
+  logoText: string;
 }
 
 const Header: React.FC<HeaderProps> = ({ logoText }) => {
-  // Usar el contexto de idioma
-  const { language, setLanguage, t } = useLanguage();
+  const { t, i18n } = useTranslation();
 
-  // Estado para controlar si el menú móvil está abierto o cerrado
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  // Estado para controlar si el menú de idiomas está abierto
   const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
-  // --- EFECTO CLAVE PARA EVITAR EL SCROLL ---
   useEffect(() => {
     if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
     } else {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     }
 
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.position = '';
-      document.body.style.width = '';
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.width = "";
     };
   }, [isMenuOpen]);
 
-  // Definir los enlaces de navegación usando las traducciones
   const navLinks = [
     { label: t("nav.home"), href: "/" },
     { label: t("nav.rooms"), href: "/rooms" },
     { label: t("nav.amenities"), href: "/amenities" },
     { label: t("nav.gallery"), href: "/gallery" },
     { label: t("nav.contact"), href: "/contact" },
-    { label: t("nav.reservations"), href: "/reservations" },
+    { label: t("nav.aboutus"), href: "/aboutus" }, 
   ];
 
-  // Idiomas disponibles
   const languages = [
     { code: "es", name: "Español" },
     { code: "en", name: "English" },
   ];
 
-  // Función para alternar el estado del menú
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleLanguageMenu = () => setIsLanguageMenuOpen(!isLanguageMenuOpen);
 
-  // Función para alternar el menú de idiomas
-  const toggleLanguageMenu = () => {
-    setIsLanguageMenuOpen(!isLanguageMenuOpen);
-  };
-
-  // Función para cambiar el idioma
   const changeLanguage = (langCode: "es" | "en") => {
-    setLanguage(langCode);
-    setIsLanguageMenuOpen(false); // Cierra el menú de idioma al seleccionar uno
+    i18n.changeLanguage(langCode);
+    setIsLanguageMenuOpen(false);
   };
 
-  // Variantes de animación para el menú
   const menuVariants = {
     closed: {
       opacity: 0,
@@ -92,19 +75,16 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
     },
   };
 
-  // Variantes para los elementos del menú
   const itemVariants = {
     closed: { opacity: 0, y: -20 },
     open: { opacity: 1, y: 0 },
   };
 
-  // Variantes para el icono de hamburguesa
   const hamburgerVariants = {
     open: { rotate: 90 },
     closed: { rotate: 0 },
   };
 
-  // Variantes para el menú de idiomas
   const languageMenuVariants = {
     closed: {
       opacity: 0,
@@ -125,13 +105,18 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
           href="/"
           className="flex items-center text-amber-500 text-3xl font-bold"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8 mr-2">
+          <svg
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="h-8 w-8 mr-2"
+            aria-hidden="true"
+          >
             <path d="M12,2C8.13,2 5,5.13 5,9c0,5.25 7,13 7,13s7,-7.75 7,-13c0,-3.87 -3.13,-7 -7,-7zM12,11.5c-1.38,0 -2.5,-1.12 -2.5,-2.5s1.12,-2.5 2.5,-2.5 2.5,1.12 2.5,2.5 -1.12,2.5 -2.5,2.5z" />
           </svg>
           <span>{logoText}</span>
         </a>
 
-        <nav className="hidden md:block">
+        <nav className="hidden md:block" aria-label={t("nav.navigation") || "Main navigation"}>
           <ul className="flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -152,7 +137,9 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
             <button
               className="text-white hover:text-amber-500 transition-colors flex items-center space-x-1"
               onClick={toggleLanguageMenu}
-              aria-label="Cambiar idioma"
+              aria-label={t("nav.changeLanguage") || "Change language"}
+              aria-haspopup="true"
+              aria-expanded={isLanguageMenuOpen}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +147,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -168,7 +156,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
                   d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
                 />
               </svg>
-              <span className="text-sm uppercase">{language}</span>
+              <span className="text-sm uppercase">{i18n.language}</span>
             </button>
 
             <AnimatePresence>
@@ -183,18 +171,19 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
                     pointerEvents: isLanguageMenuOpen ? "auto" : "none",
                   }}
                   onClick={(e) => e.stopPropagation()}
+                  role="menu"
                 >
                   <ul className="py-2">
                     {languages.map((lang) => (
                       <li key={lang.code}>
                         <button
                           className={`w-full text-left px-4 py-2 hover:bg-gray-800 transition-colors ${
-                            language === lang.code
+                            i18n.language === lang.code
                               ? "text-amber-500"
                               : "text-white"
                           }`}
-                          // === CAMBIO AQUÍ ===
                           onClick={() => changeLanguage(lang.code as "es" | "en")}
+                          role="menuitem"
                         >
                           {lang.name}
                         </button>
@@ -211,6 +200,14 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
             animate={isMenuOpen ? "open" : "closed"}
             variants={hamburgerVariants}
             onClick={toggleMenu}
+            aria-label={isMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                toggleMenu();
+              }
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -218,6 +215,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               {isMenuOpen ? (
                 <path
@@ -248,7 +246,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
             exit="closed"
             variants={menuVariants}
           >
-            <nav className="px-8">
+            <nav className="px-8" aria-label={t("nav.mobileNavigation") || "Mobile navigation"}>
               <ul className="flex flex-col space-y-6">
                 {navLinks.map((link) => (
                   <motion.li
@@ -272,18 +270,17 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
 
                 <motion.li variants={itemVariants} whileTap={{ scale: 0.95 }}>
                   <div className="text-white block text-xl font-medium mb-2">
-                    {language === "es" ? "Idioma" : "Language"}
+                    {t("nav.languageLabel", "Language")}
                   </div>
                   <div className="flex space-x-4">
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
                         className={`px-3 py-1 rounded transition-colors ${
-                          language === lang.code
+                          i18n.language === lang.code
                             ? "bg-amber-500 text-black"
                             : "bg-gray-800 text-white hover:bg-gray-700"
                         }`}
-                        // === CAMBIO AQUÍ ===
                         onClick={() => changeLanguage(lang.code as "es" | "en")}
                       >
                         {lang.name}

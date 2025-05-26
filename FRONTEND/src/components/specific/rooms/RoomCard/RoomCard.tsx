@@ -3,6 +3,7 @@
 import React from 'react';
 import { Users, Bed } from 'lucide-react';
 import type { Room } from '../RoomInterfaces';
+import { t } from 'i18next';
 
 interface RoomCardProps {
   room: Room;
@@ -19,7 +20,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onViewDetails }) => {
           className="w-full h-full object-cover transition duration-700 hover:scale-110"
         />
         <div className="absolute top-3 right-3 bg-amber-500 text-gray-900 font-bold py-1 px-3 text-sm rounded-full shadow-md">
-          ${room.price}/noche
+          ${room.price} / {t("roomModal.nightsSingular")}
         </div>
       </div>
 
@@ -31,7 +32,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onViewDetails }) => {
           <div className="flex items-center gap-4 text-sm text-gray-400 mb-2">
             <div className="flex items-center gap-1">
               <Users size={16} />
-              <span>{room.capacity} huéspedes</span>
+              <span>{room.capacity} {t("roomModal.guestsLabel")}</span>
             </div>
             <div className="flex items-center gap-1">
               <Bed size={16} />
@@ -46,7 +47,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, onViewDetails }) => {
             onClick={() => onViewDetails(room)} // Ahora este botón es para reservar, que también abre el modal de detalles
             className="w-full px-4 py-2 bg-amber-500 text-gray-900 font-semibold rounded hover:bg-amber-600 transition duration-300 text-sm"
           >
-            Reservar Ahora
+            {t("roomModal.bookNow")}
           </button>
         </div>
       </div>

@@ -1,11 +1,11 @@
 import type { FC } from 'react';
 import type { AranyaControlsProps } from './AranyaGallery.types';
 import { ChevronLeft, ChevronRight, Leaf } from 'lucide-react';
-import { useLanguage } from '../../common/context/LanguageContext';
+import { useTranslation } from "react-i18next"; ;
 import './AranyaGallery.css';
 
 export const AranyaControls: FC<AranyaControlsProps> = ({ goToPrev, goToNext, activeItemTitle }) => {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   
   return (
     <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-11/12 max-w-sm z-40 

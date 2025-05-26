@@ -2,7 +2,7 @@
 import type { FC } from "react";
 import type { AranyaCardProps } from "./AranyaGallery.types";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useLanguage } from "../../common/context/LanguageContext"; // Importa el hook useLanguage
+import { useTranslation } from "react-i18next"; // Importa el hook useLanguage
 
 export const AranyaCard: FC<AranyaCardProps> = ({
   item,
@@ -11,7 +11,7 @@ export const AranyaCard: FC<AranyaCardProps> = ({
   style,
   onClick,
 }) => {
-  const { t } = useLanguage(); // Usa el hook de traducción
+  const { t } = useTranslation(); // Usa el hook de traducción
 
   // No renderiza la tarjeta si su opacidad es casi cero (oculta)
   if (style.opacity < 0.01) return null;
