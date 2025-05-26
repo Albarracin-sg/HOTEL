@@ -5,16 +5,6 @@ import Header from '../../components/common/Header/Header'; // Importa el Header
 import Footer from '../../components/common/Footer/Footer'; // Importa el Footer
 
 const Amenities: React.FC = () => {
-  // Datos de ejemplo para el Header (asegúrate de que coincidan con los de Home)
-  const headerNavLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Rooms', href: '/rooms' },
-    { label: 'Amenities', href: '/amenities' },
-    { label: 'Gallery', href: '/gallery' },
-    { label: 'Contact', href: '/contact' },
-    { label: 'Reservations', href: '/reservations' }, 
-  ];
-
 
   // Datos de ejemplo para servicios del hotel
   const amenitiesList = [
@@ -30,7 +20,7 @@ const Amenities: React.FC = () => {
     // Contenedor principal con fondo oscuro, texto blanco y layout de columna
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
       {/* Header */}
-      <Header logoText="Tu Hotel" navLinks={headerNavLinks} />
+      <Header logoText="Tu Hotel" />
 
       {/* Main Content Area */}
       {/* pt-24 para espacio del header, padding horizontal, centrado, ancho máximo */}
