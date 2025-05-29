@@ -247,7 +247,46 @@
     "ctaTitle": "Comienza Tu Aventura",
     "ctaText": "Descubre la magia de Aranya y crea recuerdos que durarán toda la vida.",
     "ctaButton": "Ver Habitaciones"
-    
+  },
+   "contact": {
+    "headerLogoText": "Contáctanos",
+    "sendMessageTitle": "Envíanos un mensaje",
+    "contactInfoTitle": "Información de contacto"
+  },
+  "contactInfo": {
+    "phone": {
+      "title": "Teléfono",
+      "description": "Lun - Vie: 9:00 AM - 6:00 PM"
+    },
+    "email": {
+      "title": "Email",
+      "description": "Respuesta en 24 horas"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "Respuesta inmediata"
+    },
+    "office": {
+      "title": "Oficina",
+      "description": "Visítanos con cita previa"
+    },
+    "hoursTitle": "Horarios de atención",
+    "mondayFriday": "Lunes - Viernes:",
+    "saturday": "Sábados:",
+    "sunday": "Domingos:",
+    "openHours": "9:00 AM - 6:00 PM",
+    "saturdayHours": "10:00 AM - 2:00 PM",
+    "closed": "Cerrado",
+    "mapTitle": "Ubicación de la oficina"
+  },
+  "contactForm": {
+    "namePlaceholder": "Tu nombre completo",
+    "emailPlaceholder": "tu.email@ejemplo.com",
+    "subjectPlaceholder": "Asunto del mensaje",
+    "messagePlaceholder": "Escribe tu mensaje aquí...",
+    "submitButton": "Enviar mensaje",
+    "submittingButton": "Enviando...",
+    "successMessage": "¡Mensaje enviado exitosamente!"
   },
 
   "footer": {

@@ -247,6 +247,46 @@
     "ctaText": "Discover the magic of Aranya and create memories that will last a lifetime.",
     "ctaButton": "View Rooms"
   },
+  "contact": {
+    "headerLogoText": "Contact Us",
+    "sendMessageTitle": "Send Us a Message",
+    "contactInfoTitle": "Contact Information"
+  },
+  "contactInfo": {
+    "phone": {
+      "title": "Phone",
+      "description": "Mon - Fri: 9:00 AM - 6:00 PM"
+    },
+    "email": {
+      "title": "Email",
+      "description": "Response within 24 hours"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "Immediate response"
+    },
+    "office": {
+      "title": "Office",
+      "description": "Visit by appointment"
+    },
+    "hoursTitle": "Business Hours",
+    "mondayFriday": "Monday - Friday:",
+    "saturday": "Saturdays:",
+    "sunday": "Sundays:",
+    "openHours": "9:00 AM - 6:00 PM",
+    "saturdayHours": "10:00 AM - 2:00 PM",
+    "closed": "Closed",
+    "mapTitle": "Office Location"
+  },
+  "contactForm": {
+    "namePlaceholder": "Your full name",
+    "emailPlaceholder": "your.email@example.com",
+    "subjectPlaceholder": "Subject of the message",
+    "messagePlaceholder": "Write your message here...",
+    "submitButton": "Send message",
+    "submittingButton": "Sending...",
+    "successMessage": "Message sent successfully!"
+  },
   "footer": {
     "copyright": "© 2024 Your Company. All rights reserved."
   }

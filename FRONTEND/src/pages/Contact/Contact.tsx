@@ -1,70 +1,80 @@
-// src/pages/Contact/Contact.tsx
-
-import React from 'react';
-import Header from '../../components/common/Header/Header'; // Importa el Header
-import Footer from '../../components/common/Footer/Footer'; // Importa el Footer
+import React from "react";
+import Header from "../../components/common/Header/Header";
+import Footer from "../../components/common/Footer/Footer";
+import { ContactForm, ContactInfo } from "../../components/specific/contact";
+import heroBackground from "../../assets/images/background/v9.jpg";
+import { useTranslation } from "react-i18next";
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation();
 
   return (
-    // Contenedor principal con fondo oscuro, texto blanco y layout de columna
-    <div className="bg-gray-900 text-white min-h-screen flex flex-col">
-      {/* Header */}
-      <Header logoText="Tu Hotel" />
+    <div
+      className="bg-black/40 bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: `url('${heroBackground}')` }}
+    >
+      {/* Efectos visuales de fondo */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-10 left-10 w-2 h-2 bg-blue-400 rounded-full opacity-60 animate-pulse"></div>
+        <div className="absolute top-32 right-20 w-3 h-3 bg-purple-400 rounded-full opacity-40 animate-bounce"></div>
+        <div className="absolute bottom-40 left-1/4 w-1 h-1 bg-cyan-400 rounded-full opacity-70 animate-ping"></div>
+        <div className="absolute bottom-20 right-1/3 w-2 h-2 bg-indigo-400 rounded-full opacity-50 animate-pulse"></div>
+        <div className="absolute top-1/4 right-10 w-20 h-20 border border-white opacity-10 rotate-45 transform animate-spin-slow"></div>
+        <div className="absolute bottom-1/4 left-10 w-16 h-16 border-2 border-blue-300 opacity-5 rounded-full animate-pulse"></div>
+      </div>
 
-      {/* Main Content Area */}
-      {/* pt-24 para espacio del header, padding horizontal, centrado, ancho máximo */}
-      <main className="flex-grow pt-24 px-4 md:px-8 container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12"> {/* Layout de 2 columnas en desktop */}
+      {/* Overlay con gradiente sutil */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 via-transparent to-slate-800/30 z-1"></div>
 
-        {/* Sección de Información de Contacto */}
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg flex flex-col justify-center">
-          {/* Título de la sección */}
-          <h2 className="text-3xl font-bold mb-6 text-amber-500">Contáctanos</h2>
-          {/* Información */}
-          <p className="text-lg text-gray-300 mb-4">Si tienes alguna pregunta o necesitas asistencia, no dudes en contactarnos.</p>
-          <div className="text-gray-300">
-            <p className="mb-2"><span className="font-semibold text-amber-400">Dirección:</span> Calle Principal 123, Ciudad, País</p>
-            <p className="mb-2"><span className="font-semibold text-amber-400">Teléfono:</span> +123 456 7890</p>
-            <p className="mb-2"><span className="font-semibold text-amber-400">Email:</span> info@tuhotel.com</p>
+      {/* Contenido principal */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Header compacto */}
+        <div className="backdrop-blur-sm bg-white/5 border-b border-white/10 relative z-20 flex-shrink-0">
+          <Header logoText={t("contact.headerLogoText")} />
+        </div>
+
+        {/* Main Content - Ajustado para header */}
+        <main className="flex-grow py-19">
+          <div className="container mx-auto px-4 max-w-screen-xl">
+            {/* Grid principal con 2 columnas */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+              <div className="lg:col-span-1 lg:mt-16">
+                <div className="backdrop-blur-lg bg-white/10 rounded-xl border border-white/20 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/15 hover:shadow-blue-500/25">
+                  <div className="p-6 border-b border-white/10">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center">
+                      <span className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></span>
+                      {t("contact.sendMessageTitle")}
+                    </h2>
+                  </div>
+                  <div className="p-4">
+                    <ContactForm />
+                  </div>
+                </div>
+              </div>
+
+              {/* Información de contacto - AHORA A LA DERECHA */}
+              <div className="lg:col-span-1 lg:mt-7">
+                <div className="backdrop-blur-lg bg-white/10 rounded-xl border border-white/20 shadow-2xl transition-all duration-500 hover:scale-[1.02] hover:bg-white/15 hover:shadow-purple-500/25">
+                  <div className="p-6 border-b border-white/10">
+                    <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center">
+                      <span className="w-2 h-2 bg-purple-400 rounded-full mr-3 animate-pulse"></span>
+                      {t("contact.contactInfoTitle")}
+                    </h2>
+                  </div>
+                  <div className="p-6">
+                    <ContactInfo />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-           {/* Mapa (Placeholder) */}
-           <div className="mt-8 bg-gray-700 h-48 rounded-lg flex items-center justify-center text-gray-400">
-              Placeholder para Mapa
-           </div>
+        </main>
+
+        {/* Footer compacto */}
+        <div className="backdrop-blur-sm bg-white/5 border-t border-white/10 flex-shrink-0 mt-auto">
+          <Footer />
         </div>
-
-        {/* Sección del Formulario de Contacto */}
-        <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-          {/* Título del Formulario */}
-          <h2 className="text-3xl font-bold mb-6 text-amber-500">Envíanos un Mensaje</h2>
-          {/* Formulario (Placeholder) */}
-          <form>
-            {/* Campo Nombre */}
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-300 text-sm font-semibold mb-2">Nombre</label>
-              <input type="text" id="name" className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-500" />
-            </div>
-            {/* Campo Email */}
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-300 text-sm font-semibold mb-2">Email</label>
-              <input type="email" id="email" className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-500" />
-            </div>
-            {/* Campo Mensaje */}
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-gray-300 text-sm font-semibold mb-2">Mensaje</label>
-              <textarea id="message" rows={4} className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
-            </div>
-            {/* Botón Enviar */}
-            <button type="submit" className="w-full px-4 py-2 bg-amber-500 text-gray-900 font-semibold rounded hover:bg-amber-600 transition duration-300">
-              Enviar Mensaje
-            </button>
-          </form>
-        </div>
-
-      </main>
-
-      {/* Footer */}
-      <Footer />
+      </div>
     </div>
   );
 };
