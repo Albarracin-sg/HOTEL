@@ -38,11 +38,12 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
     { label: t("nav.aboutus"), href: "/aboutus" },
   ];
 
-  const languages = [
-    { code: "es", name: ("language.spanish") },
-    { code: "en", name: ("language.english") },
-    { code: "ko", name: ("language.korean" )},
-  ];
+ const languages = [
+  { code: "es", name: t("language.spanish") },
+  { code: "en", name: t("language.english") },
+  { code: "ko", name: t("language.korean") },
+];
+
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLanguageMenu = () => setIsLanguageMenuOpen(!isLanguageMenuOpen);

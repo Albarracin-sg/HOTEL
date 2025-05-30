@@ -309,10 +309,9 @@
     "terms_conditions": "Términos y Condiciones",
     "cookies": "Cookies"
   },
-  "lenguage": {
-    "english": "Inglés",
-    "spanish": "Español",
-    "korean": "coreano"
-    
-  }
+  "language": {
+  "english": "Inglés",
+  "spanish": "Español",
+  "korean": "Coreano"
+}
 }
