@@ -39,5 +39,5 @@ export default function AboutUsStory() {
         </div>
       </div>
     </section>
-  );
+  );  
 }

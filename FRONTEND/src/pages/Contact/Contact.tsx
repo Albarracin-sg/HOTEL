@@ -1,16 +1,19 @@
 import React from "react";
 import Header from "../../components/common/Header/Header";
-import Footer from "../../components/common/Footer/Footer";
+import SocialMedia from "../../components/common/socialMedia/SocialMedia";
 import { ContactForm, ContactInfo } from "../../components/specific/contact";
 import heroBackground from "../../assets/images/background/v9.jpg";
+import Footer from "../../components/common/footer/footer";
 import { useTranslation } from "react-i18next";
 
 const Contact: React.FC = () => {
   const { t } = useTranslation();
 
   return (
+    <>
+    {/* Contenedor principal con fondo y efectos visuales */}
     <div
-      className="bg-black/40 bg-cover bg-center bg-no-repeat"
+      className="bg-black/40 bg-cover bg-center bg-no-repeat min-h-screen"
       style={{ backgroundImage: `url('${heroBackground}')` }}
     >
       {/* Efectos visuales de fondo */}
@@ -70,12 +73,16 @@ const Contact: React.FC = () => {
           </div>
         </main>
 
-        {/* Footer compacto */}
+        {/* social Media compacto */}
         <div className="backdrop-blur-sm bg-white/5 border-t border-white/10 flex-shrink-0 mt-auto">
-          <Footer />
+          <SocialMedia className="w-full p-6 z-20" />
         </div>
+        
+        {/* Footer integrado dentro del contenedor con fondo */}
+        <Footer />
       </div>
     </div>
+    </>
   );
 };
 

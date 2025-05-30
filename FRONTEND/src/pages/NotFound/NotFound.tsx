@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import Header from "../../components/common/Header/Header";
-import Footer from "../../components/common/Footer/Footer";
+import SocialMedia from "../../components/common/socialMedia/SocialMedia";
 import leafBackground from "../../assets/images/background/fondoHojas.avif";
+import Footer from "../../components/common/footer/Footer";
 import { useLanguage } from "../../components/common/context/LanguageContext";
 
 const NotFoundPage = () => {
@@ -20,10 +21,12 @@ const NotFoundPage = () => {
   }, [countdown]);
 
   return (
+    <>
+      
     <div className="min-h-screen flex flex-col bg-black text-white overflow-hidden">
       {/* Ahora el Header maneja sus propias traducciones */}
       <Header logoText="" />
-      
+
       {/* Sección principal del error 404 */}
       <main
         className="flex-1 flex items-center justify-center relative"
@@ -71,9 +74,12 @@ const NotFoundPage = () => {
             {t("notfound.seconds")}
           </p>
         </div>
-        <Footer className="w-full absolute bottom-0 p-6 z-20" />
+        <SocialMedia className="w-full absolute bottom-0 p-6 z-20" />
       </main>
+      
     </div>
+      <Footer className="bg-black/80 backdrop-blur-sm text-white relative z-10" />
+    </>
   );
 };
 

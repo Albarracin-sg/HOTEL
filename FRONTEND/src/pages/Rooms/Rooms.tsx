@@ -1,8 +1,7 @@
-// src/pages/Rooms/Rooms.tsx
-
 import React, { useEffect, useState } from "react";
 import Header from "../../components/common/Header/Header";
-import Footer from "../../components/common/Footer/Footer";
+import Footer from "../../components/common/footer/footer";
+import SocialMedia from "../../components/common/socialMedia/SocialMedia";
 import RoomCard from "../../components/specific/rooms/RoomCard/RoomCard";
 import RoomFilter from "../../components/specific/rooms/RoomFilter/RoomFilter";
 import RoomModal from "../../components/specific/rooms/RoomModal/RoomModal";
@@ -129,7 +128,10 @@ const Rooms: React.FC = () => {
       size: "45 m²",
       amenities: [
         { icon: Wifi, name: t("roomTypes.deluxeSuite.amenities.wifi") },
-        { icon: Coffee, name: t("roomTypes.deluxeSuite.amenities.gourmetBreakfast") },
+        {
+          icon: Coffee,
+          name: t("roomTypes.deluxeSuite.amenities.gourmetBreakfast"),
+        },
         { icon: Wind, name: t("roomTypes.deluxeSuite.amenities.ac") },
         { icon: Tv, name: t("roomTypes.deluxeSuite.amenities.tv") },
         { icon: Bath, name: t("roomTypes.deluxeSuite.amenities.luxuryBath") },
@@ -163,11 +165,20 @@ const Rooms: React.FC = () => {
       size: "120 m²",
       amenities: [
         { icon: Wifi, name: t("roomTypes.privatePoolVilla.amenities.wifi") },
-        { icon: Coffee, name: t("roomTypes.privatePoolVilla.amenities.butlerService") },
+        {
+          icon: Coffee,
+          name: t("roomTypes.privatePoolVilla.amenities.butlerService"),
+        },
         { icon: Wind, name: t("roomTypes.privatePoolVilla.amenities.ac") },
         { icon: Tv, name: t("roomTypes.privatePoolVilla.amenities.tv") },
-        { icon: Bath, name: t("roomTypes.privatePoolVilla.amenities.luxuryBath") },
-        { icon: Car, name: t("roomTypes.privatePoolVilla.amenities.vipTransfer") },
+        {
+          icon: Bath,
+          name: t("roomTypes.privatePoolVilla.amenities.luxuryBath"),
+        },
+        {
+          icon: Car,
+          name: t("roomTypes.privatePoolVilla.amenities.vipTransfer"),
+        },
       ],
     },
     {
@@ -409,15 +420,25 @@ const Rooms: React.FC = () => {
                 <div className="text-2xl font-bold text-amber-400">
                   {t("heroSection.statsRooms", { count: roomTypes.length })}
                 </div>
-                <div className="text-sm text-gray-300">{t("heroSection.statsRooms", { count: 0 }).split('+')[1]}</div>
+                <div className="text-sm text-gray-300">
+                  {t("heroSection.statsRooms", { count: 0 }).split("+")[1]}
+                </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-2xl font-bold text-amber-400">{t("heroSection.statsRating")}</div>
-                <div className="text-sm text-gray-300">{t("heroSection.statsRating").split(' ')[1]}</div>
+                <div className="text-2xl font-bold text-amber-400">
+                  {t("heroSection.statsRating")}
+                </div>
+                <div className="text-sm text-gray-300">
+                  {t("heroSection.statsRating").split(" ")[1]}
+                </div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl px-6 py-3 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className="text-2xl font-bold text-amber-400">{t("heroSection.statsService")}</div>
-                <div className="text-sm text-gray-300">{t("heroSection.statsService").split(' ')[1]}</div>
+                <div className="text-2xl font-bold text-amber-400">
+                  {t("heroSection.statsService")}
+                </div>
+                <div className="text-sm text-gray-300">
+                  {t("heroSection.statsService").split(" ")[1]}
+                </div>
               </div>
             </div>
 
@@ -451,7 +472,9 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-sm" : ""
                 }`}
               >
-                {isMobile ? t("heroSection.ctaButtonMobile") : t("heroSection.ctaButtonDesktop")}
+                {isMobile
+                  ? t("heroSection.ctaButtonMobile")
+                  : t("heroSection.ctaButtonDesktop")}
               </a>
             </div>
           </div>
@@ -496,7 +519,9 @@ const Rooms: React.FC = () => {
               } font-medium mb-3`}
             >
               {filteredRooms.length > 0
-                ? t("resultsSection.resultsCount", { count: filteredRooms.length })
+                ? t("resultsSection.resultsCount", {
+                    count: filteredRooms.length,
+                  })
                 : t("resultsSection.noResults")}
             </p>
 
@@ -511,7 +536,11 @@ const Rooms: React.FC = () => {
                     isMobile ? "text-xs" : "text-sm"
                   } border border-amber-500/30 font-medium`}
                 >
-                  {t("resultsSection.categoryFilter", { category: categories.find((cat) => cat.id === selectedCategory)?.name })}
+                  {t("resultsSection.categoryFilter", {
+                    category: categories.find(
+                      (cat) => cat.id === selectedCategory
+                    )?.name,
+                  })}
                 </span>
               )}
               {searchTerm && (
@@ -521,9 +550,10 @@ const Rooms: React.FC = () => {
                   } border border-blue-500/30 font-medium`}
                 >
                   {t("resultsSection.searchTerm", {
-                    term: searchTerm.length > 15 && isMobile
-                      ? searchTerm.substring(0, 15) + "..."
-                      : searchTerm,
+                    term:
+                      searchTerm.length > 15 && isMobile
+                        ? searchTerm.substring(0, 15) + "..."
+                        : searchTerm,
                   })}
                 </span>
               )}
@@ -590,7 +620,9 @@ const Rooms: React.FC = () => {
                   isMobile ? "text-xl" : "text-3xl"
                 } font-bold text-white mb-4`}
               >
-                {isMobile ? t("resultsSection.noResultsTitleMobile") : t("resultsSection.noResultsTitleDesktop")}
+                {isMobile
+                  ? t("resultsSection.noResultsTitleMobile")
+                  : t("resultsSection.noResultsTitleDesktop")}
               </h3>
               <p
                 className={`text-gray-300 mb-6 ${
@@ -598,9 +630,13 @@ const Rooms: React.FC = () => {
                 } leading-relaxed`}
               >
                 {searchTerm
-                  ? t("resultsSection.noResultsSearchDescription", { searchTerm })
+                  ? t("resultsSection.noResultsSearchDescription", {
+                      searchTerm,
+                    })
                   : t("resultsSection.noResultsCategoryDescription", {
-                      category: categories.find((cat) => cat.id === selectedCategory)?.name,
+                      category: categories.find(
+                        (cat) => cat.id === selectedCategory
+                      )?.name,
                     })}
               </p>
 
@@ -616,7 +652,9 @@ const Rooms: React.FC = () => {
                       isMobile ? "px-6 py-3 text-sm" : "px-8 py-4"
                     } bg-gradient-to-r from-blue-500 to-cyan-600 text-white font-bold rounded-full hover:from-blue-600 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95`}
                   >
-                    {isMobile ? t("resultsSection.clearSearchButtonMobile") : t("resultsSection.clearSearchButtonDesktop")}
+                    {isMobile
+                      ? t("resultsSection.clearSearchButtonMobile")
+                      : t("resultsSection.clearSearchButtonDesktop")}
                   </button>
                 )}
                 <button
@@ -628,7 +666,9 @@ const Rooms: React.FC = () => {
                     isMobile ? "px-6 py-3 text-sm" : "px-8 py-4"
                   } bg-gradient-to-r from-amber-500 to-orange-600 text-gray-900 font-bold rounded-full hover:from-amber-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95`}
                 >
-                  {isMobile ? t("resultsSection.viewAllButtonMobile") : t("resultsSection.viewAllButtonDesktop")}
+                  {isMobile
+                    ? t("resultsSection.viewAllButtonMobile")
+                    : t("resultsSection.viewAllButtonDesktop")}
                 </button>
               </div>
             </div>
@@ -683,7 +723,10 @@ const Rooms: React.FC = () => {
           )}
         </div>
       )}
+      <SocialMedia />
+      <div className="backdrop-blur-sm bg-white/5 border-t border-white/10 flex-shrink-0 mt-auto"></div>
 
+      {/* Footer integrado dentro del contenedor con fondo */}
       <Footer />
     </div>
   );

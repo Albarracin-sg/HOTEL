@@ -90,16 +90,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const mobileDescription = description.split(".")[0] + ".";
 
   return (
-    <main
-      className="flex-grow relative bg-cover bg-center flex items-center"
-      style={{ backgroundImage: `url(${backgroundImageUrl})` }}
-    >
-      {/* Overlay oscuro */}
-      <div className="absolute inset-0 bg-black opacity-40" />
+    <main className="flex-grow relative bg-cover bg-center flex items-center">
+      {/* Imagen de fondo */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${backgroundImageUrl})` }}
+      />
+
+      {/* Overlay oscuro principal */}
+      <div className="absolute inset-0 bg-black opacity-30" />
+
+      {/* Gradientes de transición actuales */}
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-gray-800 via-gray-800/60 to-transparent" />
 
       {/* Contenedor animado */}
       <motion.div
-        className="container mx-auto relative z-10 px-4 lg:px-8 pt-20"
+        className="container mx-auto relative z-10 px-4 lg:px-8 pt-20 pb-16"
         variants={heroContainerVariants}
         initial="hidden"
         animate="visible"

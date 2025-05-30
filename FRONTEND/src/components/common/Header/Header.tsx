@@ -33,21 +33,21 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
   const navLinks = [
     { label: t("nav.home"), href: "/" },
     { label: t("nav.rooms"), href: "/rooms" },
-    { label: t("nav.amenities"), href: "/amenities" },
     { label: t("nav.gallery"), href: "/gallery" },
     { label: t("nav.contact"), href: "/contact" },
-    { label: t("nav.aboutus"), href: "/aboutus" }, 
+    { label: t("nav.aboutus"), href: "/aboutus" },
   ];
 
   const languages = [
     { code: "es", name: "Español" },
     { code: "en", name: "English" },
+    { code: "ko", name: "한국어" }, // Added Korean
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLanguageMenu = () => setIsLanguageMenuOpen(!isLanguageMenuOpen);
 
-  const changeLanguage = (langCode: "es" | "en") => {
+  const changeLanguage = (langCode: "es" | "en" | "ko") => { // Updated type
     i18n.changeLanguage(langCode);
     setIsLanguageMenuOpen(false);
   };
@@ -116,7 +116,10 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
           <span>{logoText}</span>
         </a>
 
-        <nav className="hidden md:block" aria-label={t("nav.navigation") || "Main navigation"}>
+        <nav
+          className="hidden md:block"
+          aria-label={t("nav.navigation") || "Main navigation"}
+        >
           <ul className="flex space-x-8">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -182,7 +185,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
                               ? "text-amber-500"
                               : "text-white"
                           }`}
-                          onClick={() => changeLanguage(lang.code as "es" | "en")}
+                          onClick={() => changeLanguage(lang.code as "es" | "en" | "ko")} // Updated type
                           role="menuitem"
                         >
                           {lang.name}
@@ -246,7 +249,10 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
             exit="closed"
             variants={menuVariants}
           >
-            <nav className="px-8" aria-label={t("nav.mobileNavigation") || "Mobile navigation"}>
+            <nav
+              className="px-8"
+              aria-label={t("nav.mobileNavigation") || "Mobile navigation"}
+            >
               <ul className="flex flex-col space-y-6">
                 {navLinks.map((link) => (
                   <motion.li
@@ -270,18 +276,18 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
 
                 <motion.li variants={itemVariants} whileTap={{ scale: 0.95 }}>
                   <div className="text-white block text-xl font-medium mb-2">
-                    {t("nav.languageLabel", "Language")}
+                    {t("nav.languageLabel")}
                   </div>
                   <div className="flex space-x-4">
                     {languages.map((lang) => (
                       <button
                         key={lang.code}
-                        className={`px-3 py-1 rounded transition-colors ${
+                        className={`px-3 py-1 transition-colors ${
                           i18n.language === lang.code
-                            ? "bg-amber-500 text-black"
-                            : "bg-gray-800 text-white hover:bg-gray-700"
+                            ? "text-amber-500"
+                            : "text-white hover:text-amber-300"
                         }`}
-                        onClick={() => changeLanguage(lang.code as "es" | "en")}
+                        onClick={() => changeLanguage(lang.code as "es" | "en" | "ko")} // Updated type
                       >
                         {lang.name}
                       </button>

@@ -1,27 +1,34 @@
 // src/pages/Gallery/Gallery.tsx
-import React from 'react';
-import Header from '../../components/common/Header/Header';
-import Footer from '../../components/common/Footer/Footer';
+import React from "react";
+import Header from "../../components/common/Header/Header";
+import SocialMedia from "../../components/common/socialMedia/SocialMedia";
 import AranyaGallery from "../../components/specific/AranyaGallery/AranyaGallery";
-import { useTranslation } from "react-i18next"; // Importa el hook useLanguage
+import Footer from "../../components/common/footer/footer";
+import { useTranslation } from "react-i18next";
 
 const Gallery: React.FC = () => {
-  const { t } = useTranslation(); // Usa el hook de traducción para acceder a la función 't'
-
+  const { t } = useTranslation();
+  
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col">
       {/* Header con fondo semi-transparente */}
       <div className="sticky top-0 z-50 bg-gray-900 bg-opacity-80">
-        {/* Pasa el texto 'Galería' traducido al componente Header */}
-        <Header logoText={t('nav.gallery')} />
+        <Header logoText={t("nav.gallery")} />
       </div>
-
-      {/* AranyaGallery como componente principal */}
+      
+      {/* Galería principal */}
       <main className="flex-grow overflow-hidden">
         <AranyaGallery />
       </main>
-
-      <Footer isGalleryPage={true} className='w-full z-20'/>
+      
+      {/* Social Media */}
+      <SocialMedia isGalleryPage={true} className="w-full z-20" />
+      
+      {/* Línea decorativa de separación */}
+      <div className="h-px bg-gradient-to-r from-transparent via-orange-500/60 to-transparent mx-8 my-4"></div>
+      
+      {/* Footer integrado */}
+      <Footer />
     </div>
   );
 };

@@ -5,6 +5,7 @@
   "nav.gallery": "Gallery",
   "nav.contact": "Contact",
   "nav.aboutus": "About Us",
+  "nav.languageLabel": "Language",
 
   "hero.discover": "Discover",
   "hero.description": "Immerse yourself in an unparalleled experience of luxury and tranquility. Explore natural beauty and relax in a serene environment.",
@@ -288,6 +289,22 @@
     "successMessage": "Message sent successfully!"
   },
   "footer": {
-    "copyright": "© 2024 Your Company. All rights reserved."
+    "copyright": "© 2025 Hotel Aranya. All rights reserved.",
+    "experience_premium": "Premium Experience",
+    "excellence_certificate": "Certificate of Tourist Excellence",
+    "description": "Discover elegance and comfort in the heart of the Colombian Caribbean. A luxury hotel experience that combines tradition and modernity.",
+    "navigation_title": "Navigation",
+    "nav_rooms": "Rooms",
+    "nav_gallery": "Gallery",
+    "nav_contact": "Contact",
+    "nav_about_us": "About Us",
+    "contact_title": "Contact",
+    "contact_reservations": "Reservations",
+    "contact_email": "Email",
+    "contact_location": "Location",
+    "location_value": "Caribbean Coast, Colombia",
+    "privacy_policy": "Privacy Policy",
+    "terms_conditions": "Terms & Conditions",
+    "cookies": "Cookies"
   }
 }

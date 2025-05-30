@@ -5,6 +5,7 @@
   "nav.gallery": "Galería",
   "nav.contact": "Contacto",
   "nav.aboutus": "Quienes Somos",
+  "nav.languageLabel": "Idioma",
 
   "hero.discover": "Descubre",
   "hero.description": "Sumérgete en una experiencia de lujo y tranquilidad inigualable. Explora la belleza natural y relájate en un entorno sereno.",
@@ -289,7 +290,23 @@
     "successMessage": "¡Mensaje enviado exitosamente!"
   },
 
-  "footer": {
-    "copyright": "© 2024 Tu Empresa. Todos los derechos reservados."
+"footer": {
+    "copyright": "© 2025 Hotel Aranya. Todos los derechos reservados.",
+    "experience_premium": "Experiencia Premium",
+    "excellence_certificate": "Certificado de Excelencia Turística",
+    "description": "Descubre la elegancia y el confort en el corazón del Caribe colombiano. Una experiencia hotelera de lujo que combina tradición y modernidad.",
+    "navigation_title": "Navegación",
+    "nav_rooms": "Habitaciones",
+    "nav_gallery": "Galería",
+    "nav_contact": "Contacto",
+    "nav_about_us": "¿Quiénes somos?",
+    "contact_title": "Contacto",
+    "contact_reservations": "Reservas",
+    "contact_email": "Email",
+    "contact_location": "Ubicación",
+    "location_value": "Costa Caribe, Colombia",
+    "privacy_policy": "Política de Privacidad",
+    "terms_conditions": "Términos y Condiciones",
+    "cookies": "Cookies"
   }
 }

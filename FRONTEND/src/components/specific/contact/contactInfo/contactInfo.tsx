@@ -15,7 +15,7 @@ const ContactInfo: React.FC = () => {
     {
       icon: Mail,
       title: t("contactInfo.email.title"), // Localized
-      value: "ejemplo@gmail.com",
+      value: "reservas@aranya.com",
       description: t("contactInfo.email.description"), // Localized
     },
     {
@@ -72,64 +72,63 @@ const ContactInfo: React.FC = () => {
           })}
         </div>
 
-        {/* Horarios de atención */}
-        <div className="bg-zinc-800/50 rounded-lg p-4">
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="bg-gradient-to-br from-green-500 to-blue-500 p-2 rounded-lg flex-shrink-0">
-              <Clock className="text-white" size={16} />
+        {/* Contenedor principal con layout responsivo */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Horarios de atención */}
+          <div className="bg-zinc-800/50 rounded-lg p-4">
+            <div className="flex items-center space-x-3 mb-3">
+              <div className="bg-gradient-to-br from-green-500 to-blue-500 p-2 rounded-lg flex-shrink-0">
+                <Clock className="text-white" size={15} />
+              </div>
+              <h4 className="text-white font-semibold text-base">
+                {t("contactInfo.hoursTitle")} {/* Localized */}
+              </h4>
             </div>
-            <h4 className="text-white font-semibold text-base">
-              {t("contactInfo.hoursTitle")} {/* Localized */}
-            </h4>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">
+                  {t("contactInfo.mondayFriday")}
+                </span>
+                <span className="text-white whitespace-nowrap">
+                  {t("contactInfo.openHours")}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">
+                  {t("contactInfo.saturday")}
+                </span>{" "}
+                {/* Localized */}
+                <span className="text-white text-right">
+                  {t("contactInfo.saturdayHours")}
+                </span>{" "}
+                {/* Localized */}
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-400">{t("contactInfo.sunday")}</span>{" "}
+                {/* Localized */}
+                <span className="text-red-400 text-right">
+                  {t("contactInfo.closed")}
+                </span>{" "}
+                {/* Localized */}
+              </div>
+            </div>
           </div>
-          <div className="space-y-1 text-sm">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">
-                {t("contactInfo.mondayFriday")}
-              </span>{" "}
-              {/* Localized */}
-              <span className="text-white text-right">
-                {t("contactInfo.openHours")}
-              </span>{" "}
-              {/* Localized */}
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">
-                {t("contactInfo.saturday")}
-              </span>{" "}
-              {/* Localized */}
-              <span className="text-white text-right">
-                {t("contactInfo.saturdayHours")}
-              </span>{" "}
-              {/* Localized */}
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-400">
-                {t("contactInfo.sunday")}
-              </span>{" "}
-              {/* Localized */}
-              <span className="text-red-400 text-right">
-                {t("contactInfo.closed")}
-              </span>{" "}
-              {/* Localized */}
-            </div>
-          </div>
-        </div>
 
-        {/* Mapa */}
-        <div className="w-full rounded-lg overflow-hidden shadow-lg bg-zinc-800/30">
-          <div className="h-48 sm:h-48">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101269.00232672398!2d-122.08675422606124!3d37.42209975184672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA%2C%20USA!5e0!3m2!1sen!2sus!4v1699907620105!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={t("contactInfo.mapTitle")} 
-              className="filter grayscale hover:grayscale-0 transition-all duration-300"
-            />
+          {/* Mapa */}
+          <div className="w-full rounded-lg overflow-hidden shadow-lg bg-zinc-800/30">
+            <div className="h-48 sm:h-48 lg:h-full min-h-[200px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d101269.00232672398!2d-122.08675422606124!3d37.42209975184672!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb7495bec0189%3A0x7c17d44a466baf9b!2sMountain%20View%2C%20CA%2C%20USA!5e0!3m2!1sen!2sus!4v1699907620105!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title={t("contactInfo.mapTitle")}
+                className="filter grayscale hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
           </div>
         </div>
       </div>

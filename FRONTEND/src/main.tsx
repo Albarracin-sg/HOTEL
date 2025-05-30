@@ -7,6 +7,7 @@ import App from './App.tsx'
 //exact language
 import es from "../i18n/Spanish/es.json"
 import en from "../i18n/English/en.json"
+import Ko from "../i18n/Korean/ko.json"
 
 //lenguage
 import i18next from 'i18next'
@@ -23,6 +24,9 @@ i18next.use(initReactI18next).init({
     },
     en: {
       translation: en,
+    },
+    ko: {
+      translation: Ko,
     },
   }
 })
