@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Header from "../../components/common/Header/Header";
 import SocialMedia from "../../components/common/socialMedia/SocialMedia";
 import leafBackground from "../../assets/images/background/fondoHojas.avif";
-import Footer from "../../components/common/footer/Footer";
+import Footer from "../../components/common/footer/footer";
 import { useLanguage } from "../../components/common/context/LanguageContext";
 
 const NotFoundPage = () => {
