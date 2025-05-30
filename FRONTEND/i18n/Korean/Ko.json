@@ -306,5 +306,10 @@
     "privacy_policy": "개인 정보 처리 방침",
     "terms_conditions": "이용 약관",
     "cookies": "쿠키"
-  }
+  },
+    "language": {
+        "english": "영어",
+        "spanish": "스페인어",
+        "korean": "한국어"
+    }
 }

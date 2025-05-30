@@ -39,9 +39,9 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
   ];
 
   const languages = [
-    { code: "es", name: "Español" },
-    { code: "en", name: "English" },
-    { code: "ko", name: "한국어" }, // Added Korean
+    { code: "es", name: ("language.spanish") },
+    { code: "en", name: ("language.english") },
+    { code: "ko", name: ("language.korean" )},
   ];
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);

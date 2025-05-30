@@ -308,5 +308,11 @@
     "privacy_policy": "Política de Privacidad",
     "terms_conditions": "Términos y Condiciones",
     "cookies": "Cookies"
+  },
+  "lenguage": {
+    "english": "Inglés",
+    "spanish": "Español",
+    "korean": "coreano"
+    
   }
 }
