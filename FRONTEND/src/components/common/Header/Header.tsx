@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ logoText }) => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleLanguageMenu = () => setIsLanguageMenuOpen(!isLanguageMenuOpen);
 
-  const changeLanguage = (langCode: "es" | "en" | "ko") => { // Updated type
+  const changeLanguage = (langCode: "es" | "en" | "ko") => {
     i18n.changeLanguage(langCode);
     setIsLanguageMenuOpen(false);
   };
