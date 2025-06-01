@@ -1,0 +1,53 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Room {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  capacity    Int       @default(2)
+  pricePerNight Float
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  bookings    Booking[]
+}
+
+model Booking {
+  id            Int      @id @default(autoincrement())
+  roomId        Int
+  customerName  String
+  customerEmail String
+  startDate     DateTime
+  endDate       DateTime
+  totalPrice    Float
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  room    Room     @relation(fields: [roomId], references: [id])
+  payment Payment?
+
+  @@index([roomId])
+}
+
+model Payment {
+  id              Int      @id @default(autoincrement())
+  bookingId       Int      @unique // Each booking has one payment
+  paymentMethod   String   // e.g., "credit_card", "paypal"
+  transactionId   String?  // ID from payment gateway
+  paymentDate     DateTime @default(now())
+  amount          Float
+  status          String   @default("COMPLETED") // e.g., PENDING, COMPLETED, FAILED
+
+  booking Booking @relation(fields: [bookingId], references: [id])
+
+  @@index([bookingId])
+}
