@@ -7,6 +7,6 @@ app.listen(PORT, () => {
   console.log(`🚀 El servidor está corriendo en el puerto ${PORT}`);
   console.log(`🔗 Accede a http://localhost:${PORT}`);
   if (process.env.NODE_ENV !== 'production') {
-    console.log(`🛠️ Prisma Studio: ejecuta 'npx prisma studio' (en otra terminal)`);
+    console.log(`\n🛠️ Prisma Studio: ejecuta 'npx prisma studio' (en otra terminal)`);
   }
 });

@@ -21,7 +21,7 @@ transporter.verify((error, success) => {
     );
   } else {
     console.log(
-      "\nTransportador de Nodemailer configurado correctamente. El servidor está listo para enviar mensajes."
+      "\nTransportador de Nodemailer configurado correctamente. El servidor está listo para enviar mensajes.\n"
     );
   }
 });

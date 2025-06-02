@@ -18,9 +18,9 @@ exports.transporter = nodemailer_1.default.createTransport({
 });
 exports.transporter.verify((error, success) => {
     if (error) {
-        console.error("Error al configurar el transportador de Nodemailer:", error);
+        console.error("\nError al configurar el transportador de Nodemailer:", error);
     }
     else {
-        console.log("Transportador de Nodemailer configurado correctamente. El servidor está listo para enviar mensajes.");
+        console.log("\nTransportador de Nodemailer configurado correctamente. El servidor está listo para enviar mensajes.\n");
     }
 });
