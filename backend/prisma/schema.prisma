@@ -54,9 +54,9 @@ model Payment {
 
 model ContactMessage {
   id        Int      @id @default(autoincrement())
-  nombre    String
+  name      String   
   email     String
-  asunto    String
-  mensaje   String
+  subject   String
+  message   String
   createdAt DateTime @default(now())
 }

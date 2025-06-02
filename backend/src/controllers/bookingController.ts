@@ -2,12 +2,7 @@
 import { Request, Response } from "express";
 import { PrismaClient, Prisma } from "@prisma/client";
 import { availabilityService } from "../services/availabilityService";
-import {
-  sendBookingConfirmationEmail,
-  sendContactAcknowledgementEmail,
-  sendAdminContactNotification,
-} from "../services/mail";
-
+import { sendBookingConfirmationEmail } from "../services/mail";
 
 const prisma = new PrismaClient();
 
@@ -15,8 +10,8 @@ interface BookingInfo {
   roomId: number;
   customerName: string;
   customerEmail: string;
-  startDate: string; // Expected as YYYY-MM-DD
-  endDate: string; // Expected as YYYY-MM-DD
+  startDate: string; 
+  endDate: string; 
 }
 
 interface PaymentInfo {

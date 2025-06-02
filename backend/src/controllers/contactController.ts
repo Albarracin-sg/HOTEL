@@ -1,39 +1,41 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 import {
-  sendBookingConfirmationEmail,
   sendContactAcknowledgementEmail,
   sendAdminContactNotification,
 } from "../services/mail/index";
 
-import { prisma } from '../prismaclient';
+import { prisma } from "../prismaclient";
 
 interface DatosFormularioContacto {
-  nombre: string;
+  name: string;
   email: string;
-  asunto: string;
-  mensaje: string;
+  subject: string;
+  message: string;
 }
 
 export const contactController = {
   handleContactForm: async (req: Request, res: Response) => {
-    const { nombre, email, asunto, mensaje }: DatosFormularioContacto = req.body;
+    const { name, email, subject, message }: DatosFormularioContacto = req.body;
 
-    if (!nombre || !email || !asunto || !mensaje) {
-      return res.status(400).json({ mensaje: 'Todos los campos son obligatorios: nombre, email, asunto, mensaje.' });
+    if (!name || !email || !subject || !message) {
+      return res.status(400).json({
+        mensaje:
+          "Todos los campos son obligatorios: nombre, email, asunto, mensaje.",
+      });
     }
 
     const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!regexEmail.test(email)) {
-      return res.status(400).json({ mensaje: 'Formato de email inválido.' });
+      return res.status(400).json({ mensaje: "Formato de email inválido." });
     }
 
     try {
       await prisma.contactMessage.create({
         data: {
-          nombre,
+          name,
           email,
-          asunto,
-          mensaje,
+          subject,
+          message,
         },
       });
 
@@ -46,24 +48,33 @@ export const contactController = {
       await sendContactAcknowledgementEmail(email);
 
       await sendAdminContactNotification({
-        name: nombre,
+        name: name,
         email: email,
-        subject: asunto,
-        message: mensaje,
+        subject: subject,
+        message: message,
       });
 
       return res.status(200).json({
-        mensaje: 'Mensaje enviado con éxito. Gracias por escribirnos, estamos leyendo tu mensaje.',
+        mensaje:
+          "Mensaje enviado con éxito. Gracias por escribirnos, estamos leyendo tu mensaje.",
       });
     } catch (error) {
-      console.error('Error procesando el formulario de contacto:', error);
-      if (error instanceof Error && error.message.includes('ADMIN_EMAIL not configured')) {
+      console.error("Error procesando el formulario de contacto:", error);
+      if (
+        error instanceof Error &&
+        error.message.includes("ADMIN_EMAIL not configured")
+      ) {
         return res.status(200).json({
-          mensaje: 'Mensaje recibido. Gracias por escribirnos. (Nota: Hubo un problema notificando al administrador).',
-          advertencia: 'La notificación al administrador pudo fallar por problemas de configuración.',
+          mensaje:
+            "Mensaje recibido. Gracias por escribirnos. (Nota: Hubo un problema notificando al administrador).",
+          advertencia:
+            "La notificación al administrador pudo fallar por problemas de configuración.",
         });
       }
-      return res.status(500).json({ mensaje: 'Error interno del servidor al procesar el formulario de contacto.' });
+      return res.status(500).json({
+        mensaje:
+          "Error interno del servidor al procesar el formulario de contacto.",
+      });
     }
   },
 };
