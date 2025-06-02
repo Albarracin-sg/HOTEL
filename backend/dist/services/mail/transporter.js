@@ -10,7 +10,7 @@ dotenv_1.default.config();
 exports.transporter = nodemailer_1.default.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT) || 587,
-    secure: (process.env.EMAIL_PORT === '465'),
+    secure: process.env.EMAIL_PORT === "465",
     auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -18,9 +18,9 @@ exports.transporter = nodemailer_1.default.createTransport({
 });
 exports.transporter.verify((error, success) => {
     if (error) {
-        console.error('Error configuring Nodemailer transporter:', error);
+        console.error("Error al configurar el transportador de Nodemailer:", error);
     }
     else {
-        console.log('Nodemailer transporter configured successfully. Server is ready to take messages.');
+        console.log("Transportador de Nodemailer configurado correctamente. El servidor está listo para enviar mensajes.");
     }
 });

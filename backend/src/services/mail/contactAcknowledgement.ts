@@ -1,278 +1,333 @@
-import { sendEmail } from './sendEmail';
+import { sendEmail } from "./sendEmail";
 
-export async function sendContactAcknowledgementEmail(customerEmail: string): Promise<void> {
-  const subject = 'Gracias por contactarnos - Aranya';
-  
-  // Versión de texto plano como respaldo
-  const text = `
-ARANYA - Hotel de Lujo
+export async function sendContactAcknowledgementEmail(
+  customerEmail: string
+): Promise<void> {
+  const subject = "Gracias por contactarnos - Aranya";
 
-Hemos recibido tu mensaje
-
-Gracias por contactarnos y por tu interés en Aranya. Tu mensaje es muy importante para nosotros y queremos asegurarnos de brindarte la mejor atención posible.
-
-Uno de nuestros especialistas en hospitalidad revisará tu consulta y se pondrá en contacto contigo dentro de las próximas 24 horas.
-
-Mientras tanto, te invitamos a explorar nuestra galería y descubrir todo lo que nuestro paraíso natural tiene preparado para ti.
-
-Con cariño y expectativa de recibirte pronto,
-El equipo de Aranya
-"Donde los sueños encuentran su hogar"
-
----
-Aranya Resort
-Sumérgete en una experiencia de lujo y tranquilidad
-info@aranya.com | +1 (555) 123-4567
-Bahía Esmeralda, Paraíso Natural
-  `;
 
   const html = `
     <!DOCTYPE html>
-    <html lang="es">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Confirmación - Aranya</title>
-      <style>
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-        
-        body {
-          font-family: Arial, sans-serif;
-          line-height: 1.6;
-          color: #333;
-          background-color: #4a90a4;
-          margin: 0;
-          padding: 20px;
-        }
-        
-        .email-container {
-          max-width: 600px;
-          margin: 0 auto;
-          background: rgba(255, 255, 255, 0.95);
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header {
-          background-color: #2d6b7a;
-          padding: 40px 30px;
-          text-align: center;
-        }
-        
-        .header::before {
-          display: none;
-        }
-        
-        .logo {
-          color: #ff6b35;
-          font-size: 36px;
-          font-weight: bold;
-          margin-bottom: 10px;
-          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-          position: relative;
-          z-index: 1;
-        }
-        
-        .logo::before {
-          content: '📍';
-          margin-right: 10px;
-        }
-        
-        .tagline {
-          color: #f0f8ff;
-          font-size: 16px;
-          font-style: italic;
-          position: relative;
-          z-index: 1;
-        }
-        
-        .content {
-          padding: 40px 30px;
-          background: white;
-        }
-        
-        .greeting {
-          font-size: 28px;
-          color: #2d6b7a;
-          margin-bottom: 20px;
-          text-align: center;
-          font-weight: 300;
-        }
-        
-        .message {
-          font-size: 16px;
-          color: #555;
-          margin-bottom: 25px;
-          line-height: 1.8;
-        }
-        
-        .highlight-box {
-          background: linear-gradient(135deg, #f0f8ff, #e6f3ff);
-          border-left: 4px solid #ff6b35;
-          padding: 20px;
-          margin: 25px 0;
-          border-radius: 8px;
-          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .highlight-box p {
-          margin: 0;
-          color: #2d6b7a;
-          font-weight: 500;
-        }
-        
-        .signature {
-          margin-top: 30px;
-          padding-top: 20px;
-          border-top: 2px solid #e0e0e0;
-          color: #666;
-        }
-        
-        .signature-name {
-          font-weight: bold;
-          color: #2d6b7a;
-        }
-        
-        .footer {
-          background-color: #2d6b7a;
-          padding: 30px;
-          text-align: center;
-          color: white;
-        }
-        
-        .footer-content {
-          margin-bottom: 20px;
-        }
-        
-        .footer h3 {
-          color: #ff6b35;
-          margin-bottom: 15px;
-          font-size: 20px;
-        }
-        
-        .footer p {
-          margin: 5px 0;
-          opacity: 0.9;
-        }
-        
-        .social-links {
-          margin-top: 20px;
-        }
-        
-        .social-links a {
-          display: inline-block;
-          margin: 0 10px;
-          color: #ff6b35;
-          text-decoration: none;
-          font-size: 18px;
-          transition: opacity 0.3s ease;
-        }
-        
-        .social-links a:hover {
-          opacity: 0.7;
-        }
-        
-        .decorative-wave {
-          height: 4px;
-          background: linear-gradient(90deg, #ff6b35, #ff8c42, #ff6b35);
-          margin: 20px 0;
-        }
-        
-        @media (max-width: 600px) {
-          .email-container {
-            margin: 10px;
-            border-radius: 10px;
+      <html lang="es">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gracias por contactarnos - Aranya</title>
+        <style>
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          
+          body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
+            padding: 40px 20px;
+          }
+          
+          .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
           }
           
           .header {
-            padding: 30px 20px;
-          }
-          
-          .content {
-            padding: 30px 20px;
+            background: #ffffff;
+            padding: 40px 30px 30px 30px;
+            text-align: center;
+            border-bottom: 1px solid #f7fafc;
           }
           
           .logo {
-            font-size: 28px;
-          }
-          
-          .greeting {
+            color: #2d3748;
             font-size: 24px;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 30px;
           }
-        }
-      </style>
-    </head>
-    <body>
-      <div class="email-container">
-        <div class="header">
-          <div class="logo">Aranya</div>
-          <div class="tagline">Lujo y tranquilidad inigualable</div>
+          
+          .status {
+            display: inline-flex;
+            align-items: center;
+            background: #f0f9ff;
+            color: #1e40af;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #dbeafe;
+          }
+          
+          .status-icon {
+            margin-right: 6px;
+            font-size: 16px;
+          }
+          
+          .content {
+            padding: 30px;
+          }
+          
+          .title {
+            font-size: 18px;
+            color: #2d3748;
+            margin-bottom: 20px;
+            font-weight: 400;
+          }
+          
+          .message {
+            color: #4a5568;
+            font-size: 15px;
+            margin-bottom: 25px;
+            font-weight: 400;
+            line-height: 1.5;
+          }
+          
+          .info-section {
+            background: #fafafa;
+            border-radius: 6px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 3px solid #2d3748;
+          }
+          
+          .info-row {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e2e8f0;
+          }
+          
+          .info-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+          
+          .info-label {
+            color: #718096;
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 4px;
+            line-height: 1.4;
+          }
+          
+          .info-value {
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 14px;
+            display: block;
+            line-height: 1.4;
+          }
+          
+          .response-time {
+            background: #f0f9ff;
+            color: #1e40af;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            margin: 25px 0;
+            border: 1px solid #dbeafe;
+          }
+          
+          .response-time-main {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+          }
+          
+          .response-time-note {
+            font-size: 13px;
+            opacity: 0.8;
+          }
+          
+          .closing-message {
+            color: #4a5568;
+            font-size: 15px;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 400;
+            line-height: 1.5;
+          }
+          
+          .footer {
+            background: #fafafa;
+            padding: 25px 20px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+          }
+          
+          .footer-text {
+            color: #718096;
+            font-size: 13px;
+            margin-bottom: 8px;
+            line-height: 1.4;
+          }
+          
+          .contact {
+            color: #4a5568;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1.4;
+          }
+          
+          .address {
+            color: #718096;
+            font-size: 12px;
+            margin-top: 8px;
+            line-height: 1.4;
+          }
+          
+          /* Responsive design mejorado */
+          @media (max-width: 600px) {
+            body { 
+              padding: 20px 10px; 
+            }
+            
+            .container { 
+              border-radius: 6px; 
+              margin: 0 auto;
+            }
+            
+            .header, .content { 
+              padding: 25px 20px; 
+            }
+            
+            .logo { 
+              font-size: 20px; 
+              letter-spacing: 6px; 
+            }
+            
+            .title { 
+              font-size: 16px; 
+            }
+            
+            .info-section {
+              padding: 20px;
+              margin: 20px 0;
+            }
+            
+            .info-row {
+              margin-bottom: 12px;
+              padding-bottom: 12px;
+            }
+            
+            .info-label {
+              font-size: 13px;
+            }
+            
+            .info-value {
+              font-size: 13px;
+            }
+            
+            .message, .closing-message {
+              font-size: 14px;
+            }
+            
+            .response-time {
+              padding: 12px;
+              margin: 20px 0;
+            }
+            
+            .response-time-main {
+              font-size: 14px;
+            }
+            
+            .response-time-note {
+              font-size: 12px;
+            }
+          }
+          
+          /* Soporte para clientes de email */
+          @media screen and (max-width: 480px) {
+            .container {
+              width: 100% !important;
+              max-width: 100% !important;
+            }
+            
+            .header, .content, .footer {
+              padding-left: 15px !important;
+              padding-right: 15px !important;
+            }
+            
+            .info-section {
+              padding: 15px !important;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="container">
+          <!-- Header -->
+          <div class="header">
+            <div class="logo">ARANYA</div>
+            <div class="status">
+              <span class="status-icon">📩</span>
+              Mensaje recibido
+            </div>
+          </div>
+          
+          <!-- Content -->
+          <div class="content">
+            <div class="title">
+              ¡Gracias por contactarnos!
+            </div>
+            
+            <div class="message">
+              Hemos recibido tu mensaje y uno de nuestros agentes se pondrá en contacto contigo pronto.
+            </div>
+            
+            <!-- Response Time -->
+            <div class="response-time">
+              <div class="response-time-main">⏱️ Tiempo de respuesta: 24 horas</div>
+              <div class="response-time-note">Para consultas urgentes, contáctanos por WhatsApp</div>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="info-section">
+              <div class="info-row">
+                <span class="info-label">Horarios de atención</span>
+                <span class="info-value">Lunes - Viernes: 9:00 AM - 6:00 PM</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Sábados</span>
+                <span class="info-value">10:00 AM - 2:00 PM</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Domingos</span>
+                <span class="info-value">Cerrado</span>
+              </div>
+            </div>
+            
+            <div class="closing-message">
+              Te contactaremos pronto
+            </div>
+          </div>
+          
+          <!-- Footer -->
+          <div class="footer">
+            <div class="footer-text">El equipo de Aranya</div>
+            <div class="contact">reservas@aranya.com</div>
+            <div class="address">
+              Aranya Resort & Spa<br>
+              2560 San Ridge Drive, CA 94043
+            </div>
+          </div>
         </div>
-        
-        <div class="content">
-          <h1 class="greeting">¡Hemos recibido tu mensaje!</h1>
-          
-          <p class="message">
-            Gracias por contactarnos y por tu interés en <strong>Aranya</strong>. 
-            Tu mensaje es muy importante para nosotros y queremos asegurarnos de brindarte 
-            la mejor atención posible.
-          </p>
-          
-          <div class="highlight-box">
-            <p>
-              🌟 Uno de nuestros especialistas en hospitalidad revisará tu consulta 
-              y se pondrá en contacto contigo dentro de las próximas 24 horas.
-            </p>
-          </div>
-          
-          <p class="message">
-            Mientras tanto, te invitamos a explorar nuestra galería y descubrir todo lo que 
-            nuestro paraíso natural tiene preparado para ti. En Aranya, cada detalle está 
-            pensado para crear experiencias inolvidables.
-          </p>
-          
-          <div class="decorative-wave"></div>
-          
-          <div class="signature">
-            <p>Con cariño y expectativa de recibirte pronto,</p>
-            <p class="signature-name">El equipo de Aranya</p>
-            <p><em>Donde los sueños encuentran su hogar</em></p>
-          </div>
-        </div>
-        
-        <div class="footer">
-          <div class="footer-content">
-            <h3>🏝️ Aranya Resort</h3>
-            <p>Sumérgete en una experiencia de lujo y tranquilidad</p>
-            <p>📧 info@aranya.com | 📞 +1 (555) 123-4567</p>
-            <p>🌍 Bahía Esmeralda, Paraíso Natural</p>
-          </div>
-          
-          <div class="social-links">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Instagram">📸</a>
-            <a href="#" title="Twitter">🐦</a>
-          </div>
-          
-          <p style="margin-top: 20px; font-size: 12px; opacity: 0.7;">
-            Este correo fue enviado porque te pusiste en contacto con nosotros. 
-            Si tienes alguna pregunta, no dudes en responder a este email.
-          </p>
-        </div>
-      </div>
-    </body>
-    </html>
+      </body>
+      </html>
   `;
 
-  await sendEmail({ 
-    to: customerEmail, 
-    subject, 
+  await sendEmail({
+    to: customerEmail,
+    subject,
     html,
-    text // Añadimos la versión de texto como respaldo
+    text: "Gracias por contactarnos. Hemos recibido tu mensaje y uno de nuestros agentes se pondrá en contacto contigo dentro de las próximas 24 horas.",
   });
 }

@@ -1,4 +1,4 @@
-import { transporter } from './transporter';
+import { transporter } from "./transporter";
 
 interface MailOptions {
   from?: string;
@@ -15,9 +15,12 @@ export async function sendEmail(mailOptions: MailOptions): Promise<void> {
       ...mailOptions,
     };
     await transporter.sendMail(optionsWithDefaults);
-    console.log(`Email sent to ${mailOptions.to}`);
+    console.log(`Correo enviado a: ${mailOptions.to}`);
   } catch (error) {
-    console.error(`Error sending email to ${mailOptions.to}:`, error);
-    throw new Error(`Failed to send email: ${(error as Error).message}`);
+    console.error(
+      `ERROR: no se pudo enviar el correo a ${mailOptions.to}:`,
+      error
+    );
+    throw new Error(`No se pudo enviar el correo: ${(error as Error).message}`);
   }
 }

@@ -9,10 +9,10 @@ async function sendEmail(mailOptions) {
             ...mailOptions,
         };
         await transporter_1.transporter.sendMail(optionsWithDefaults);
-        console.log(`Email sent to ${mailOptions.to}`);
+        console.log(`Correo enviado a: ${mailOptions.to}`);
     }
     catch (error) {
-        console.error(`Error sending email to ${mailOptions.to}:`, error);
-        throw new Error(`Failed to send email: ${error.message}`);
+        console.error(`ERROR: no se pudo enviar el correo a ${mailOptions.to}:`, error);
+        throw new Error(`No se pudo enviar el correo: ${error.message}`);
     }
 }
