@@ -17,16 +17,16 @@ app.use((0, cors_1.default)()); // Enable CORS for all routes
 app.use(express_1.default.json()); // Parse JSON request bodies
 app.use(express_1.default.urlencoded({ extended: true })); // Parse URL-encoded request bodies
 // Basic Route
-app.get('/', (req, res) => {
-    res.send('Hotel Booking API is running!');
+app.get("/", (req, res) => {
+    res.send("Backend del Hotel - API en funcionamiento");
 });
 // API Routes
-app.use('/api/bookings', bookingRoutes_1.default);
-app.use('/api/contact', contactRoutes_1.default);
+app.use("/api/bookings", bookingRoutes_1.default);
+app.use("/api/contact", contactRoutes_1.default);
 // Global Error Handler (simple example)
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err, req, res, next) => {
     console.error(err.stack);
-    res.status(500).send('Something broke!');
+    res.status(500).send("Something broke!");
 });
 exports.default = app;

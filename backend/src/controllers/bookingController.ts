@@ -2,7 +2,12 @@
 import { Request, Response } from "express";
 import { PrismaClient, Prisma } from "@prisma/client";
 import { availabilityService } from "../services/availabilityService";
-import { emailService } from "../services/emailService";
+import {
+  sendBookingConfirmationEmail,
+  sendContactAcknowledgementEmail,
+  sendAdminContactNotification,
+} from "../services/mail";
+
 
 const prisma = new PrismaClient();
 
@@ -128,7 +133,7 @@ export const bookingController = {
       );
 
       // Send confirmation email (outside transaction, as it's an external service)
-      await emailService.sendBookingConfirmationEmail(customerEmail, {
+      await sendBookingConfirmationEmail(customerEmail, {
         roomName: room.name,
         startDate,
         endDate,

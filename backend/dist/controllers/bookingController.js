@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.bookingController = void 0;
 const client_1 = require("@prisma/client");
 const availabilityService_1 = require("../services/availabilityService");
-const emailService_1 = require("../services/emailService");
+const mail_1 = require("../services/mail");
 const prisma = new client_1.PrismaClient();
 exports.bookingController = {
     createBooking: async (req, res) => {
@@ -79,7 +79,7 @@ exports.bookingController = {
                 return createdBooking;
             });
             // Send confirmation email (outside transaction, as it's an external service)
-            await emailService_1.emailService.sendBookingConfirmationEmail(customerEmail, {
+            await (0, mail_1.sendBookingConfirmationEmail)(customerEmail, {
                 roomName: room.name,
                 startDate,
                 endDate,

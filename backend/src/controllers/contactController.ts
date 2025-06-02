@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
-import { emailService } from '../services/emailService';
+import {
+  sendBookingConfirmationEmail,
+  sendContactAcknowledgementEmail,
+  sendAdminContactNotification,
+} from "../services/mail/index";
+
 import { prisma } from '../prismaclient';
-
-
 
 interface DatosFormularioContacto {
   nombre: string;
@@ -11,7 +14,7 @@ interface DatosFormularioContacto {
   mensaje: string;
 }
 
-export const contactController  = {
+export const contactController = {
   handleContactForm: async (req: Request, res: Response) => {
     const { nombre, email, asunto, mensaje }: DatosFormularioContacto = req.body;
 
@@ -40,9 +43,9 @@ export const contactController  = {
         await prisma.contactMessage.deleteMany({});
       }
 
-      await emailService.sendContactAcknowledgementEmail(email);
+      await sendContactAcknowledgementEmail(email);
 
-      await emailService.sendAdminContactNotification({
+      await sendAdminContactNotification({
         name: nombre,
         email: email,
         subject: asunto,

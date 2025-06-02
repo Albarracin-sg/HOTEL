@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.contactController = void 0;
-const emailService_1 = require("../services/emailService");
+const index_1 = require("../services/mail/index");
 const prismaclient_1 = require("../prismaclient");
 exports.contactController = {
     handleContactForm: async (req, res) => {
@@ -26,8 +26,8 @@ exports.contactController = {
             if (cantidadMensajes >= 50) {
                 await prismaclient_1.prisma.contactMessage.deleteMany({});
             }
-            await emailService_1.emailService.sendContactAcknowledgementEmail(email);
-            await emailService_1.emailService.sendAdminContactNotification({
+            await (0, index_1.sendContactAcknowledgementEmail)(email);
+            await (0, index_1.sendAdminContactNotification)({
                 name: nombre,
                 email: email,
                 subject: asunto,
