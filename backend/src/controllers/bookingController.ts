@@ -10,8 +10,8 @@ interface BookingInfo {
   roomId: number;
   customerName: string;
   customerEmail: string;
-  startDate: string; 
-  endDate: string; 
+  startDate: string;
+  endDate: string;
 }
 
 interface PaymentInfo {
@@ -84,7 +84,7 @@ export const bookingController = {
       );
       if (!isAvailable) {
         return res.status(400).json({
-          message: `Room ${room.name} is not available for the selected dates.`,
+          message: `Las fechas seleccionadas para la habitación "${room.name}" ya están ocupadas.`,
         });
       }
 

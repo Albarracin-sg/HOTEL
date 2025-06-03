@@ -44,7 +44,7 @@ exports.bookingController = {
             const isAvailable = await availabilityService_1.availabilityService.isRoomAvailable(roomId, startDate, endDate);
             if (!isAvailable) {
                 return res.status(400).json({
-                    message: `Room ${room.name} is not available for the selected dates.`,
+                    message: `Las fechas seleccionadas para la habitación "${room.name}" ya están ocupadas.`,
                 });
             }
             // Calculate total price
