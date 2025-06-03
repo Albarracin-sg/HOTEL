@@ -2,21 +2,14 @@ import React, { useState } from 'react';
 import { Send, User, Mail, MessageSquare, FileText } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import axios from 'axios';
+import { contactApiService } from '../../../../services/contactApi';
+import type { FormData } from '../../../../services/contactApi';
 
-interface FormData {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-}
-
-interface ApiResponse {
-  mensaje: string;
-}
-
+// Componente
 const ContactForm: React.FC = () => {
   const { t } = useTranslation();
 
+  // Estado para los valores del formulario
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -24,72 +17,84 @@ const ContactForm: React.FC = () => {
     message: ''
   });
 
+  // Estado para saber si el formulario está siendo enviado
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Estado para saber si la solicitud fue exitosa, fallida o aún no ha ocurrido
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  // Estado para mostrar mensajes de error si los hay
   const [errorMessage, setErrorMessage] = useState('');
+
+  /**
+   * Maneja los cambios en los campos del formulario.
+   * Evento de cambio en el input o textarea
+   */
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+
+    // Actualizamos el estado del formulario
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
-    // Reset status when user starts typing again
+
+    // Si ya hubo una respuesta previa, reseteamos el estado para mostrar una nueva
     if (submitStatus !== 'idle') {
       setSubmitStatus('idle');
       setErrorMessage('');
     }
   };
 
+  // Maneja el envío del formulario
+   
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-    setErrorMessage('');
+    e.preventDefault(); // Prevenimos recarga de página
+    setIsSubmitting(true); // Marcamos como "enviando"
+    setSubmitStatus('idle'); // Reiniciamos estado de envío
+    setErrorMessage(''); // Limpiamos cualquier error previo
 
     try {
-      const response = await axios.post<ApiResponse>('http://localhost:3000/api/contact', formData, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        timeout: 10000, // 10 seconds timeout
-      });
+      // Enviamos los datos al backend usando el servicio
+      const response = await contactApiService.sendContactForm(formData);
 
-      // Debug: ver qué responde el backend
-      console.log('Backend response:', response.data);
-      console.log('Status code:', response.status);
+      // Si se envió correctamente, actualizamos el estado
+      setSubmitStatus('success');
 
-      // Si la respuesta tiene status 200/201, consideramos que fue exitoso
-      if (response.status >= 200 && response.status < 300) {
-        setSubmitStatus('success');
-        // Mostrar el mensaje del backend o mensaje por defecto
-        alert(response.data.mensaje || t('contactForm.successMessage'));
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-        setErrorMessage(response.data?.mensaje || 'Error desconocido');
-      }
+      // Mostramos un mensaje de éxito (desde backend o traducido)
+      alert(response.mensaje || t('contactForm.successMessage'));
+
+      // Limpiamos los campos del formulario
+      setFormData({ name: '', email: '', subject: '', message: '' });
+
     } catch (error) {
+      // Si ocurre un error, lo reflejamos en el estado
       setSubmitStatus('error');
-      
+
       if (axios.isAxiosError(error)) {
+        // Si el error viene del servidor
         if (error.response) {
-          // Server responded with error status
-          const errorMsg = error.response.data?.mensaje || `Error ${error.response.status}: ${error.response.statusText}`;
+          const errorMsg =
+            error.response.data?.mensaje ||
+            `Error ${error.response.status}: ${error.response.statusText}`;
           setErrorMessage(errorMsg);
         } else if (error.request) {
-          // Request was made but no response received
+          // Si no hubo respuesta del servidor
           setErrorMessage('No se pudo conectar con el servidor. Verifica tu conexión.');
         } else {
-          // Something else happened
+          // Otro tipo de error
           setErrorMessage('Error al enviar el formulario. Inténtalo de nuevo.');
         }
       } else {
+        // Error inesperado
         setErrorMessage('Error inesperado. Inténtalo de nuevo.');
       }
-      
+
+      // Mostramos el error en consola para depuración
       console.error('Error submitting form:', error);
     } finally {
+      // Finalizamos el estado de "enviando"
       setIsSubmitting(false);
     }
   };

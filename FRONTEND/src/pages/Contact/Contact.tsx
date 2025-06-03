@@ -74,9 +74,7 @@ const Contact: React.FC = () => {
         </main>
 
         {/* social Media compacto */}
-        <div className="backdrop-blur-sm bg-white/5 border-t border-white/10 flex-shrink-0 mt-auto">
           <SocialMedia className="w-full p-6 z-20" />
-        </div>
         
         {/* Footer integrado dentro del contenedor con fondo */}
         <Footer />
