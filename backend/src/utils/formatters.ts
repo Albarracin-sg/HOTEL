@@ -1,5 +1,3 @@
-// src/utils/formatters.ts
-
 /**
  * Formats a date object into YYYY-MM-DD string
  * @param date Date object
